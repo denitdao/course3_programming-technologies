@@ -6,7 +6,7 @@ package ua.kpi.tef.pt.main.lect05.stack;
  */
 public interface Stack<T> {
     /**
-     * Adds an element to the begining of the stack.
+     * Adds an element to the beginning of the stack.
      *
      * @param element the element to add
      */

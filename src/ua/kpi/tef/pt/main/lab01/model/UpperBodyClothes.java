@@ -2,6 +2,7 @@ package ua.kpi.tef.pt.main.lab01.model;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 public class UpperBodyClothes extends Clothes {

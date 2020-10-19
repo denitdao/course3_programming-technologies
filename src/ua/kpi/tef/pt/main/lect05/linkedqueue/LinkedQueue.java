@@ -9,13 +9,44 @@ package ua.kpi.tef.pt.main.lect05.linkedqueue;
  */
 public class LinkedQueue<T> implements Queue<T> {
 
+    private Node<T> firstNode;
+    private int size;
+
+    private static class Node<T> {
+        private T value;
+        private Node<T> next;
+
+        public Node<T> getNext() {
+            return next;
+        }
+        public void setNext(Node<T> next) {
+            this.next = next;
+        }
+        public T getValue() {
+            return value;
+        }
+        public void setValue(T value) {
+            this.value = value;
+        }
+    }
+
+
     /**
      * Adds an element to the end of the queue.
      *
      * @param element the element to add
      */
     public void add(T element) {
-        throw new UnsupportedOperationException("This method is not implemented yet"); // todo: implement this method
+        if(size == 0) {
+            firstNode = new Node<>();
+            firstNode.setValue(element);
+        } else {
+            Node<T> tempNode = getNode(size - 1);
+            tempNode.setNext(new Node<>());
+            tempNode = tempNode.getNext();
+            tempNode.setValue(element);
+        }
+        size++;
     }
 
     /**
@@ -24,7 +55,20 @@ public class LinkedQueue<T> implements Queue<T> {
      * @return an element that was retrieved from the head or null if queue is empty
      */
     public T poll() {
-        throw new UnsupportedOperationException("This method is not implemented yet"); // todo: implement this method
+        T result;
+        try {
+            result = getNode(0).getValue();
+            if (size == 1) {
+                firstNode = null;
+            } else {
+                Node<T> tempNode = getNode(0);
+                firstNode = tempNode.getNext();
+            }
+            size--;
+        } catch (IndexOutOfBoundsException e) {
+            result = null;
+        }
+        return result;
     }
 
     /**
@@ -33,7 +77,7 @@ public class LinkedQueue<T> implements Queue<T> {
      * @return an integer value that is a size of queue
      */
     public int size() {
-        throw new UnsupportedOperationException("This method is not implemented yet"); // todo: implement this method
+        return size;
     }
 
     /**
@@ -42,6 +86,16 @@ public class LinkedQueue<T> implements Queue<T> {
      * @return {@code true} if the queue is empty, returns {@code false} if it's not
      */
     public boolean isEmpty() {
-        throw new UnsupportedOperationException("This method is not implemented yet"); // todo: implement this method
+        return (size == 0);
+    }
+
+    private Node<T> getNode(int index) {
+        if(index < 0 || index >= size)
+            throw new IndexOutOfBoundsException();
+        Node<T> tempNode = firstNode;
+        for (int i = 0; i < index; i++){
+            tempNode = tempNode.getNext();
+        }
+        return tempNode;
     }
 }
