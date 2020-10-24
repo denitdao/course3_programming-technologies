@@ -1,8 +1,8 @@
 package ua.kpi.tef.pt.main.lab01.service;
 
 import ua.kpi.tef.pt.main.lab01.model.ClothingPart;
-import ua.kpi.tef.pt.main.lab01.model.enums.Material;
-import ua.kpi.tef.pt.main.lab01.model.enums.Color;
+import ua.kpi.tef.pt.main.lab01.model.parts.Material;
+import ua.kpi.tef.pt.main.lab01.model.parts.Color;
 
 public class ClothingPartService {
 
@@ -14,11 +14,11 @@ public class ClothingPartService {
         clothingPart.setColor(getClothingPartColor());
     }
 
-    private Material getClothingPartMaterial(){ //todo implement user input
+    private Material getClothingPartMaterial() {
         return Material.COTTON;
     }
 
-    private Color getClothingPartColor(){ //todo implement user input
+    private Color getClothingPartColor() {
         return Color.BLUE;
     }
 }

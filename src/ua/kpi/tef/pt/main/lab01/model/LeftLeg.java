@@ -1,8 +1,8 @@
 package ua.kpi.tef.pt.main.lab01.model;
 
-import ua.kpi.tef.pt.main.lab01.model.enums.Color;
-import ua.kpi.tef.pt.main.lab01.model.enums.Fit;
-import ua.kpi.tef.pt.main.lab01.model.enums.Material;
+import ua.kpi.tef.pt.main.lab01.model.parts.Color;
+import ua.kpi.tef.pt.main.lab01.model.parts.Fit;
+import ua.kpi.tef.pt.main.lab01.model.parts.Material;
 
 public class LeftLeg implements ClothingPart {
     private final String title = "Left Leg";

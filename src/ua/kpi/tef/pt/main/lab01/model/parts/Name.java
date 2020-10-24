@@ -1,6 +1,6 @@
-package ua.kpi.tef.pt.main.lab01.model.enums;
+package ua.kpi.tef.pt.main.lab01.model.parts;
 
-// todo divide into upper and lower names
+// divide into upper and lower names
 public enum Name {
     COAT("Coat"), JACKET("Jacket"), SHIRT("Shirt"), T_SHIRT("T-shirt"), SWEATER("Sweater"),
     PANTS("Pants"), JEANS("Jeans"), SHORTS("Shorts");

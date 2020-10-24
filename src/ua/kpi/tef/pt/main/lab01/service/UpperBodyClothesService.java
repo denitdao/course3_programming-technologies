@@ -1,9 +1,9 @@
 package ua.kpi.tef.pt.main.lab01.service;
 
 import ua.kpi.tef.pt.main.lab01.model.*;
-import ua.kpi.tef.pt.main.lab01.model.enums.Name;
-import ua.kpi.tef.pt.main.lab01.model.enums.Size;
-import ua.kpi.tef.pt.main.lab01.model.enums.Type;
+import ua.kpi.tef.pt.main.lab01.model.parts.Name;
+import ua.kpi.tef.pt.main.lab01.model.parts.Size;
+import ua.kpi.tef.pt.main.lab01.model.parts.Type;
 
 import java.util.Iterator;
 
@@ -18,7 +18,7 @@ public class UpperBodyClothesService {
     /**
      * Used to create any lower body clothes. Asks user by itself
      */
-    // todo implement user controls
+    // implement user controls
     public UpperBodyClothes create() {
         UpperBodyClothes upperBodyClothes = new UpperBodyClothes();
         upperBodyClothes.setType(findType());
@@ -34,16 +34,16 @@ public class UpperBodyClothesService {
         return upperBodyClothes;
     }
 
-    // todo implement user controls
+    // implement user controls
     public void edit(UpperBodyClothes upperBodyClothes) {
         upperBodyClothes.setType(findType());
         upperBodyClothes.setName(findName());
         upperBodyClothes.setSize(findSize());
 
-        Iterator<ClothingPart> clothingPartIterator = upperBodyClothes.getIterator(); // todo use iterator at clothingPart toString (to print parts from newline)
+        Iterator<ClothingPart> clothingPartIterator = upperBodyClothes.getIterator();
         while(clothingPartIterator.hasNext()){
             ClothingPart part = clothingPartIterator.next();
-            if(part instanceof Body) { // todo try to use map here
+            if(part instanceof Body) { // - todo try to use map here
                 bodyService.edit(part);
             } else if(part instanceof LeftSleeve) {
                 leftSleeveService.edit(part);
@@ -54,14 +54,13 @@ public class UpperBodyClothesService {
             }
         }
 
-        upperBodyClothes.setTitle("Edited Shirt"); // todo change to findTitle()
+        upperBodyClothes.setTitle("Edited Shirt"); // change to findTitle()
     }
 
     public void show(UpperBodyClothes item) {
         System.out.println(item.toString());
     }
 
-    // todo implement user input recognition
     private Type findType() {
         return Type.WOMAN;
     }

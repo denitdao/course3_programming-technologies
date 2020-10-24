@@ -1,8 +1,8 @@
 package ua.kpi.tef.pt.main.lab01.service;
 
 import ua.kpi.tef.pt.main.lab01.model.ClothingPart;
-import ua.kpi.tef.pt.main.lab01.model.enums.Color;
-import ua.kpi.tef.pt.main.lab01.model.enums.Material;
+import ua.kpi.tef.pt.main.lab01.model.parts.Color;
+import ua.kpi.tef.pt.main.lab01.model.parts.Material;
 import ua.kpi.tef.pt.main.lab01.model.Body;
 
 public class BodyService {
@@ -20,7 +20,7 @@ public class BodyService {
         body.setMaterial(findMaterial());
     }
 
-    // todo implement user input recognition
+    // implement user input recognition
     private Color findColor() {
         return Color.BLUE;
     }

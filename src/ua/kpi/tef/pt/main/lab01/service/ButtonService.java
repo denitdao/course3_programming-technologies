@@ -1,8 +1,8 @@
 package ua.kpi.tef.pt.main.lab01.service;
 
 import ua.kpi.tef.pt.main.lab01.model.*;
-import ua.kpi.tef.pt.main.lab01.model.enums.Color;
-import ua.kpi.tef.pt.main.lab01.model.enums.Material;
+import ua.kpi.tef.pt.main.lab01.model.parts.Color;
+import ua.kpi.tef.pt.main.lab01.model.parts.Material;
 
 public class ButtonService {
 
@@ -21,7 +21,7 @@ public class ButtonService {
         button.setAmount(findAmount());
     }
 
-    // todo implement user input recognition
+    // implement user input recognition
     private Color findColor() {
         return Color.BLACK;
     }

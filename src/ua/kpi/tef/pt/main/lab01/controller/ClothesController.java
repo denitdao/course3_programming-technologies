@@ -6,10 +6,11 @@ import ua.kpi.tef.pt.main.lab01.service.LowerBodyClothesService;
 import ua.kpi.tef.pt.main.lab01.service.UpperBodyClothesService;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class ClothesController {
-    private HashMap<Integer, UpperBodyClothes> upperBodyClothes;
-    private HashMap<Integer, LowerBodyClothes> lowerBodyClothes;
+    private final Map<Long, UpperBodyClothes> upperBodyClothes; // + todo generalized (HashMap -> Map) (19)
+    private final Map<Long, LowerBodyClothes> lowerBodyClothes;
     private final UpperBodyClothesService upperBodyClothesService;
     private final LowerBodyClothesService lowerBodyClothesService;
 
@@ -20,12 +21,11 @@ public class ClothesController {
         lowerBodyClothesService = new LowerBodyClothesService();
     }
 
-    // todo ask about the section of clothes (lower, upper)
-    public void createClothes() {
+    // ask about the section of clothes (lower, upper)
+    public void createClothes(int section) {
         System.out.println("Creating clothes.");
         System.out.println("Type number of clothing section you want to create:");
 
-        int section = 2;
         switch(section){
             case 1: {
                 LowerBodyClothes item = lowerBodyClothesService.create();
@@ -43,12 +43,11 @@ public class ClothesController {
         }
     }
 
-    // todo ask about the id of the clothes
-    public void editClothes() {
+    // ask about the id of the clothes
+    public void editClothes(long id) {
         System.out.println("Editing clothes.");
         System.out.println("Type id of the clothing you want to edit:");
 
-        int id = 1;
         if(lowerBodyClothes.containsKey(id)){
             lowerBodyClothesService.edit(lowerBodyClothes.get(id));
         }
@@ -59,12 +58,11 @@ public class ClothesController {
         }
     }
 
-    // todo ask about the id of the clothes
-    public void showClothes() {
+    // ask about the id of the clothes
+    public void showClothes(long id) {
         System.out.println("Showing clothes.");
         System.out.println("Type id of the clothing you want to show:");
 
-        int id = 1;
         if(lowerBodyClothes.containsKey(id)){
             lowerBodyClothesService.show(lowerBodyClothes.get(id));
         }
@@ -75,12 +73,11 @@ public class ClothesController {
         }
     }
 
-    // todo ask about the id of the clothes
-    public void deleteClothes() {
+    // ask about the id of the clothes
+    public void deleteClothes(long id) {
         System.out.println("Deleting clothes.");
         System.out.println("Type id of the clothing you want to delete:");
 
-        int id = 1;
         if(lowerBodyClothes.containsKey(id)){
             lowerBodyClothes.remove(id);
         }

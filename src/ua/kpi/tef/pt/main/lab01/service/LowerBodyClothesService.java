@@ -1,9 +1,9 @@
 package ua.kpi.tef.pt.main.lab01.service;
 
 import ua.kpi.tef.pt.main.lab01.model.*;
-import ua.kpi.tef.pt.main.lab01.model.enums.Name;
-import ua.kpi.tef.pt.main.lab01.model.enums.Size;
-import ua.kpi.tef.pt.main.lab01.model.enums.Type;
+import ua.kpi.tef.pt.main.lab01.model.parts.Name;
+import ua.kpi.tef.pt.main.lab01.model.parts.Size;
+import ua.kpi.tef.pt.main.lab01.model.parts.Type;
 
 import java.util.Iterator;
 
@@ -17,7 +17,7 @@ public class LowerBodyClothesService {
     /**
     * Used to create any lower body clothes. Asks user by itself
     */
-    // todo implement user controls
+    // implement user controls
     public LowerBodyClothes create() {
         LowerBodyClothes lowerBodyClothes = new LowerBodyClothes();
         lowerBodyClothes.setType(findType());
@@ -32,7 +32,7 @@ public class LowerBodyClothesService {
         return lowerBodyClothes;
     }
 
-    // todo implement user controls
+    // implement user controls
     public void edit(LowerBodyClothes lowerBodyClothes) {
         lowerBodyClothes.setType(findType());
         lowerBodyClothes.setName(findName());
@@ -57,16 +57,15 @@ public class LowerBodyClothesService {
         System.out.println(item.toString());
     }
 
-    // todo implement user input recognition
-    private Type findType() { //todo implement user input
+    private Type findType() {
         return Type.MAN;
     }
 
-    private Size findSize() { //todo implement user input
+    private Size findSize() {
         return Size.M;
     }
 
-    private Name findName() { //todo implement user input
+    private Name findName() {
         return Name.JEANS;
     }
 

@@ -1,7 +1,7 @@
 package ua.kpi.tef.pt.main.lab01.model;
 
-import ua.kpi.tef.pt.main.lab01.model.enums.Color;
-import ua.kpi.tef.pt.main.lab01.model.enums.Material;
+import ua.kpi.tef.pt.main.lab01.model.parts.Color;
+import ua.kpi.tef.pt.main.lab01.model.parts.Material;
 
 public class Body implements ClothingPart {
     private final String title = "Body";

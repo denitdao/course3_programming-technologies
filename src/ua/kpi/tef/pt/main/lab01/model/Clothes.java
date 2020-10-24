@@ -1,18 +1,18 @@
 package ua.kpi.tef.pt.main.lab01.model;
 
-import ua.kpi.tef.pt.main.lab01.model.enums.Name;
-import ua.kpi.tef.pt.main.lab01.model.enums.Size;
-import ua.kpi.tef.pt.main.lab01.model.enums.Type;
+import ua.kpi.tef.pt.main.lab01.model.parts.Name;
+import ua.kpi.tef.pt.main.lab01.model.parts.Size;
+import ua.kpi.tef.pt.main.lab01.model.parts.Type;
 
 public abstract class Clothes {
-    private static int counter = 0;
-    protected final int id = ++counter;
+    private static long counter = 0;
+    protected final long id = ++counter;
     protected String title;
     protected Type type;
     protected Name name;
     protected Size size;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -67,7 +67,8 @@ public abstract class Clothes {
         sb.append(title).append(":\n(")
                 .append(name).append(", ")
                 .append(type).append(", ")
-                .append(size).append(")");
+                .append(size).append(") hash: ")
+                .append(hashCode());
         return sb.toString();
     }
 }

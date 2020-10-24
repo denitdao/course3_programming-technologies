@@ -1,9 +1,9 @@
 package ua.kpi.tef.pt.main.lab01.service;
 
 import ua.kpi.tef.pt.main.lab01.model.ClothingPart;
-import ua.kpi.tef.pt.main.lab01.model.enums.Color;
-import ua.kpi.tef.pt.main.lab01.model.enums.Fit;
-import ua.kpi.tef.pt.main.lab01.model.enums.Material;
+import ua.kpi.tef.pt.main.lab01.model.parts.Color;
+import ua.kpi.tef.pt.main.lab01.model.parts.Fit;
+import ua.kpi.tef.pt.main.lab01.model.parts.Material;
 import ua.kpi.tef.pt.main.lab01.model.RightLeg;
 
 public class RightLegService {
@@ -23,7 +23,6 @@ public class RightLegService {
         rightLeg.setFit(findFit());
     }
 
-    // todo implement user input recognition
     private Color findColor() {
         return Color.BLUE;
     }

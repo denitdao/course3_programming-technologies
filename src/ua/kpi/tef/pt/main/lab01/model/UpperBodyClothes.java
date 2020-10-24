@@ -2,14 +2,13 @@ package ua.kpi.tef.pt.main.lab01.model;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 
 public class UpperBodyClothes extends Clothes {
     /* body, leftSleeve, rightSleeve; // тело и рукава
     collar, buttons, pockets; // воротник, пуговицы, карманы*/
 
-    protected List<ClothingPart> clothingParts = new ArrayList<>(); // todo generalize (use List instead of ArrayList)
+    protected List<ClothingPart> clothingParts = new ArrayList<>(); // + todo generalize (ArrayList -> List)
 
     public void add(ClothingPart part) {
         clothingParts.add(part);
@@ -24,14 +23,12 @@ public class UpperBodyClothes extends Clothes {
     }
 
     @Override
-    public String toString() { // todo generalize within parent class
+    public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\n").append(super.toString()).append("\n");
-        String[] parts = clothingParts.toString().split(",");
-        for(String part: parts) {
-            sb.append(part).append("\n");
+        sb.append("\nUpper Body - ").append(super.toString()).append("\n"); // general info
+        for (ClothingPart clothingPart : clothingParts) {
+            sb.append(clothingPart.toString()).append("\n");
         }
         return sb.toString();
     }
-
 }

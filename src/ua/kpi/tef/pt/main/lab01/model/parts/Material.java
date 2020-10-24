@@ -1,4 +1,4 @@
-package ua.kpi.tef.pt.main.lab01.model.enums;
+package ua.kpi.tef.pt.main.lab01.model.parts;
 
 public enum Material {
     POLYESTER("Polyester"), COTTON("Cotton"), VISCOSE("Viscose"), WOOL("Wool"), SILK("Silk"),

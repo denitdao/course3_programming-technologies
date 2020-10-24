@@ -6,25 +6,25 @@ public class ClothesDesigner {
 
     private final ClothesController clothesController = new ClothesController();
 
-    // todo ask about the type of action (create, edit, show, delete)
-    public void start(int action) {
+    // ask about the type of action (create, edit, show, delete)
+    public void start(int action, long id, int part) {
         System.out.println("\tType number of action you want to choose:");
 
-        switch(action++){
+        switch(action){
             case 1: {
-                clothesController.createClothes();
+                clothesController.createClothes(part);
                 break;
             }
             case 2: {
-                clothesController.editClothes();
+                clothesController.editClothes(id);
                 break;
             }
             case 3: {
-                clothesController.showClothes();
+                clothesController.showClothes(id);
                 break;
             }
             case 4: {
-                clothesController.deleteClothes();
+                clothesController.deleteClothes(id);
                 break;
             }
             case 5: { // set 0
@@ -35,13 +35,17 @@ public class ClothesDesigner {
                 System.out.println("Wrong action number");
             }
         }
-        start(action);
     }
 
     public static void main(String[] args) {
         ClothesDesigner app = new ClothesDesigner();
         System.out.println("\t\tStart building your clothes");
-        app.start(1);
+        app.start(1, 1, 1); // create clothes with id 1
+        app.start(1, 1, 1); // create clothes with id 2
+        app.start(3, 1, 1); // show id 1
+        app.start(3, 2, 1); // show id 2
+        app.start(2, 2, 1); // edit id 2
+        app.start(3, 2, 1); // show id 2
     }
 }
 
