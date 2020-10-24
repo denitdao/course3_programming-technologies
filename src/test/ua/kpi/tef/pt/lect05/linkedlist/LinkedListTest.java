@@ -1,4 +1,4 @@
-package test.ua.kpi.tef.pt.lect05.linkedlist;
+package ua.kpi.tef.pt.lect05.linkedlist;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

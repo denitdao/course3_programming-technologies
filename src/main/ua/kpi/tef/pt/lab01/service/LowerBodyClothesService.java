@@ -4,7 +4,6 @@ import ua.kpi.tef.pt.lab01.model.*;
 import ua.kpi.tef.pt.lab01.model.parts.Name;
 import ua.kpi.tef.pt.lab01.model.parts.Size;
 import ua.kpi.tef.pt.lab01.model.parts.Type;
-import ua.kpi.tef.pt.main.lab01.model.*;
 
 import java.util.Iterator;
 

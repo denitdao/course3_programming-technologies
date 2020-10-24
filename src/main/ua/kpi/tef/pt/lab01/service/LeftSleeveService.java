@@ -5,7 +5,6 @@ import ua.kpi.tef.pt.lab01.model.LeftSleeve;
 import ua.kpi.tef.pt.lab01.model.parts.Color;
 import ua.kpi.tef.pt.lab01.model.parts.Length;
 import ua.kpi.tef.pt.lab01.model.parts.Material;
-import ua.kpi.tef.pt.main.lab01.model.*;
 
 public class LeftSleeveService {
 
