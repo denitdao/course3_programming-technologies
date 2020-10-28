@@ -14,16 +14,12 @@ class ClothesControllerTest {
 
     @Test
     public void createLowerBodyClothesShouldNotThrow() {
-        assertDoesNotThrow(() -> {
-            clothesController.createClothes(1);
-        });
+        assertDoesNotThrow(() -> clothesController.createClothes(1));
     }
 
     @Test
     public void createUpperBodyClothesShouldNotThrow() {
-        assertDoesNotThrow(() -> {
-            clothesController.createClothes(2);
-        });
+        assertDoesNotThrow(() -> clothesController.createClothes(2));
     }
 
     @Test
