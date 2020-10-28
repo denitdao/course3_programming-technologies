@@ -25,19 +25,19 @@ public class ClothesController {
     }
 
     // ask about the section of clothes (lower, upper)
-    public void createClothes(int section) throws InvalidClothingSectionException {
+    public long createClothes(int section) throws InvalidClothingSectionException {
         System.out.println("Type number of clothing section you want to create:");
 
         switch(section){
             case 1: {
                 LowerBodyClothes item = lowerBodyClothesService.create();
                 lowerBodyClothes.put(item.getId(), item);
-                break;
+                return item.getId();
             }
             case 2: {
                 UpperBodyClothes item = upperBodyClothesService.create();
                 upperBodyClothes.put(item.getId(), item);
-                break;
+                return item.getId();
             }
             default: {
                throw(new InvalidClothingSectionException("Wrong clothing section number.")); // + todo use of exception (13)
