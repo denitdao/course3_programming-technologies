@@ -13,14 +13,14 @@ class UpperBodyClothesServiceTest {
     UpperBodyClothesService upperBodyClothesService = new UpperBodyClothesService();
 
     @Test
-    public void createNewLowerBodyClothesShouldReturnLowerBodyClothes() {
+    public void createNewUpperBodyClothesShouldReturnUpperBodyClothes() {
         UpperBodyClothes upperBodyClothes = upperBodyClothesService.create();
 
         assertNotNull(upperBodyClothes);
     }
 
     @Test
-    public void editLowerBodyClothesShouldSetNotNull(){
+    public void editUpperBodyClothesShouldSetNotNull(){
         UpperBodyClothes upperBodyClothes = new UpperBodyClothes();
 
         upperBodyClothesService.edit(upperBodyClothes);
