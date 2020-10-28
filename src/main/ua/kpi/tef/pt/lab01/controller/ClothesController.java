@@ -40,7 +40,7 @@ public class ClothesController {
                 break;
             }
             default: {
-               throw(new InvalidClothingSectionException("Wrong clothing section number."));
+               throw(new InvalidClothingSectionException("Wrong clothing section number.")); // + todo use of exception (13)
             }
         }
     }

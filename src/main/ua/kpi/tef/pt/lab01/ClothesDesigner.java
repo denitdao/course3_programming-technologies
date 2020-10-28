@@ -18,7 +18,7 @@ public class ClothesDesigner {
                 try {
                     clothesController.createClothes(part);
                 } catch (InvalidClothingSectionException e) {
-                    System.out.println(e.getMessage());
+                    System.out.println(e.getMessage()); // + todo use of exception (13)
                 }
                 break;
             }
