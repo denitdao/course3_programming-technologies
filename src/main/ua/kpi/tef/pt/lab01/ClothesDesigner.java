@@ -1,6 +1,8 @@
 package ua.kpi.tef.pt.lab01;
 
 import ua.kpi.tef.pt.lab01.controller.ClothesController;
+import ua.kpi.tef.pt.lab01.exceptions.InvalidClothesIdException;
+import ua.kpi.tef.pt.lab01.exceptions.InvalidClothingSectionException;
 
 public class ClothesDesigner {
 
@@ -12,19 +14,39 @@ public class ClothesDesigner {
 
         switch(action){
             case 1: {
-                clothesController.createClothes(part);
+                System.out.println("Creating clothes.");
+                try {
+                    clothesController.createClothes(part);
+                } catch (InvalidClothingSectionException e) {
+                    System.out.println(e.getMessage());
+                }
                 break;
             }
             case 2: {
-                clothesController.editClothes(id);
+                System.out.println("Editing clothes.");
+                try {
+                    clothesController.editClothes(id);
+                } catch (InvalidClothesIdException e) {
+                    System.out.println(e.getMessage());
+                }
                 break;
             }
             case 3: {
-                clothesController.showClothes(id);
+                System.out.println("Showing clothes.");
+                try {
+                    clothesController.showClothes(id);
+                } catch (InvalidClothesIdException e) {
+                    System.out.println(e.getMessage());
+                }
                 break;
             }
             case 4: {
-                clothesController.deleteClothes(id);
+                System.out.println("Deleting clothes.");
+                try {
+                    clothesController.deleteClothes(id);
+                } catch (InvalidClothesIdException e) {
+                    System.out.println(e.getMessage());
+                }
                 break;
             }
             case 5: { // set 0
