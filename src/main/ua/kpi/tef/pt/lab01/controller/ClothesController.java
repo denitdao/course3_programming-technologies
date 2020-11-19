@@ -24,25 +24,14 @@ public class ClothesController {
         lowerBodyClothesService = new LowerBodyClothesService();
     }
 
-    // ask about the section of clothes (lower, upper)
-    public long createClothes(int section) throws InvalidClothingSectionException {
-        System.out.println("Type number of clothing section you want to create:");
+    public long addUpperBody(UpperBodyClothes upperBodyClothes) {
+        this.upperBodyClothes.put(upperBodyClothes.getId(), upperBodyClothes);
+        return upperBodyClothes.getId();
+    }
 
-        switch(section){
-            case 1: {
-                LowerBodyClothes item = lowerBodyClothesService.create();
-                lowerBodyClothes.put(item.getId(), item);
-                return item.getId();
-            }
-            case 2: {
-                UpperBodyClothes item = upperBodyClothesService.create();
-                upperBodyClothes.put(item.getId(), item);
-                return item.getId();
-            }
-            default: {
-               throw(new InvalidClothingSectionException("Wrong clothing section number.")); // + todo use of exception (13)
-            }
-        }
+    public long addLowerBody(LowerBodyClothes lowerBodyClothes) {
+        this.lowerBodyClothes.put(lowerBodyClothes.getId(), lowerBodyClothes);
+        return lowerBodyClothes.getId();
     }
 
     // ask about the id of the clothes
@@ -60,7 +49,6 @@ public class ClothesController {
 
     // ask about the id of the clothes
     public void showClothes(long id) throws InvalidClothesIdException {
-        System.out.println("Type id of the clothing you want to show:");
         if(lowerBodyClothes.containsKey(id)){
             lowerBodyClothesService.show(lowerBodyClothes.get(id));
         }
@@ -73,7 +61,6 @@ public class ClothesController {
 
     // ask about the id of the clothes
     public void deleteClothes(long id) throws InvalidClothesIdException {
-        System.out.println("Type id of the clothing you want to delete:");
         if(lowerBodyClothes.containsKey(id)){
             lowerBodyClothes.remove(id);
         }

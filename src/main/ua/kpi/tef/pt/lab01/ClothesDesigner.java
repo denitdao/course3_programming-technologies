@@ -60,14 +60,20 @@ public class ClothesDesigner {
     }
 
     public static void main(String[] args) {
-        ClothesDesigner app = new ClothesDesigner();
-        System.out.println("\t\tStart building your clothes");
-        app.start(1, 1, 1); // create clothes with id 1
-        app.start(1, 1, 1); // create clothes with id 2
-        app.start(3, 1, 1); // show id 1
-        app.start(3, 2, 1); // show id 2
-        app.start(2, 2, 1); // edit id 2
-        app.start(3, 2, 1); // show id 2
+        ClothingPart body = BodyService.create(Material.COTTON, Color.BLUE);
+        ClothingPart button = ButtonService.create(Material.COTTON, Color.BLUE, 10);
+
+        UpperBodyClothes clothes_one = UpperBodyClothesService.create(Type.MAN, Name.COAT, Size.L, "Big Coat", body, button);
+
+        long clothes_one_id = clothesController.addUpperBody(clothes_one);
+
+        clothesController.showClothes(clothes_one_id);
+
+        UpperBodyClothesService.editGeneral(clothesController.getUpperBody(clothes_one_id), null, null, null, "new title");
+        UpperBodyClothesService.editBody(clothesController.getUpperBody(clothes_one_id), Material.METAL, Color.GREEN);
+        UpperBodyClothesService.editButton(clothesController.getUpperBody(clothes_one_id), null, null, 4);
+
+        clothesController.showClothes(clothes_one_id);
     }
 }
 

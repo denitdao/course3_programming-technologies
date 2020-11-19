@@ -6,9 +6,8 @@ import ua.kpi.tef.pt.lab01.model.RightSleeve;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RightSleeveServiceTest {
-    RightSleeveService rightSleeveService = new RightSleeveService();
 
-    @Test
+    /*@Test
     public void createNewRightSleeveShouldReturnRightSleeve() {
         RightSleeve rightSleeve = rightSleeveService.create();
 
@@ -25,5 +24,5 @@ class RightSleeveServiceTest {
         assertNotNull(rightSleeve.getMaterial());
         assertNotNull(rightSleeve.getColor());
         assertNotNull(rightSleeve.getLength());
-    }
+    }*/
 }

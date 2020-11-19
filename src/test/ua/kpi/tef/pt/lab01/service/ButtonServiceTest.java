@@ -6,9 +6,8 @@ import ua.kpi.tef.pt.lab01.model.Button;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ButtonServiceTest {
-    ButtonService buttonService = new ButtonService();
 
-    @Test
+    /*@Test
     public void createNewButtonShouldReturnButton() {
         Button button = buttonService.create();
 
@@ -25,5 +24,5 @@ class ButtonServiceTest {
         assertNotNull(button.getMaterial());
         assertNotNull(button.getColor());
         assertNotEquals(button.getAmount(), 0);
-    }
+    }*/
 }

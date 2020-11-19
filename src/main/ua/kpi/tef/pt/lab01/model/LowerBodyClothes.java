@@ -27,9 +27,8 @@ public class LowerBodyClothes extends Clothes {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("\nLower Body - ").append(super.toString()).append("\n");
-        Iterator<ClothingPart> clothingPartIterator = clothingParts.iterator(); // + todo use iterator (to print parts from the newline) (19)
-        while(clothingPartIterator.hasNext()) {
-            sb.append(clothingPartIterator.next().toString()).append("\n");
+        for (ClothingPart clothingPart : clothingParts) {
+            sb.append(clothingPart.toString()).append("\n");
         }
         return sb.toString();
     }

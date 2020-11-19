@@ -6,9 +6,8 @@ import ua.kpi.tef.pt.lab01.model.RightLeg;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RightLegServiceTest {
-    RightLegService rightLegService = new RightLegService();
 
-    @Test
+    /*@Test
     public void createNewRightLegShouldReturnRightLeg() {
         RightLeg rightLeg = rightLegService.create();
 
@@ -25,5 +24,5 @@ class RightLegServiceTest {
         assertNotNull(rightLeg.getMaterial());
         assertNotNull(rightLeg.getColor());
         assertNotNull(rightLeg.getFit());
-    }
+    }*/
 }
