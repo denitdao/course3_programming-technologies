@@ -8,30 +8,15 @@ import ua.kpi.tef.pt.lab01.model.parts.Material;
 
 public class LeftSleeveService {
 
-    public LeftSleeve create() {
-        LeftSleeve leftSleeve = new LeftSleeve();
-        leftSleeve.setColor(findColor());
-        leftSleeve.setMaterial(findMaterial());
-        leftSleeve.setLength(findLength());
-        return leftSleeve;
+    public static LeftSleeve create(Material material, Color color, Length length) {
+        return new LeftSleeve(material, color, length);
     }
 
-    public void edit(ClothingPart clothingPart) {
+    public static void edit(ClothingPart clothingPart, Material material, Color color, Length length) {
         LeftSleeve leftSleeve = (LeftSleeve) clothingPart;
-        leftSleeve.setColor(findColor());
-        leftSleeve.setMaterial(findMaterial());
-        leftSleeve.setLength(findLength());
+        if (material != null) leftSleeve.setMaterial(material);
+        if (color != null) leftSleeve.setColor(color);
+        if (length != null) leftSleeve.setLength(length);
     }
 
-    private Color findColor() {
-        return Color.YELLOW;
-    }
-
-    private Material findMaterial() {
-        return Material.COTTON;
-    }
-
-    private Length findLength(){
-        return Length.LONG;
-    }
 }

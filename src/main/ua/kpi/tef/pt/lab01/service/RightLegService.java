@@ -8,30 +8,15 @@ import ua.kpi.tef.pt.lab01.model.RightLeg;
 
 public class RightLegService {
 
-    public RightLeg create() {
-        RightLeg rightLeg = new RightLeg();
-        rightLeg.setColor(findColor());
-        rightLeg.setMaterial(findMaterial());
-        rightLeg.setFit(findFit());
-        return rightLeg;
+    public static RightLeg create(Material material, Color color, Fit fit) {
+        return new RightLeg(material, color, fit);
     }
 
-    public void edit(ClothingPart clothingPart) {
+    public static void edit(ClothingPart clothingPart, Material material, Color color, Fit fit) {
         RightLeg rightLeg = (RightLeg) clothingPart;
-        rightLeg.setColor(findColor());
-        rightLeg.setMaterial(findMaterial());
-        rightLeg.setFit(findFit());
+        if (material != null) rightLeg.setMaterial(material);
+        if (color != null) rightLeg.setColor(color);
+        if (fit != null) rightLeg.setFit(fit);
     }
 
-    private Color findColor() {
-        return Color.BLUE;
-    }
-
-    private Material findMaterial() {
-        return Material.COTTON;
-    }
-
-    private Fit findFit(){
-        return Fit.REGULAR;
-    }
 }

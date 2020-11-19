@@ -10,6 +10,12 @@ public class LeftLeg implements ClothingPart {
     private Color color;
     private Fit fit;
 
+    public LeftLeg(Material material, Color color, Fit fit) {
+        this.material = material;
+        this.color = color;
+        this.fit = fit;
+    }
+
     @Override
     public String getTitle(){
         return title;

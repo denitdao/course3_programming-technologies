@@ -8,13 +8,13 @@ public class UpperBodyClothes extends Clothes {
     /* body, leftSleeve, rightSleeve; // тело и рукава
     collar, buttons, pockets; // воротник, пуговицы, карманы*/
 
-    protected List<ClothingPart> clothingParts = new ArrayList<>(); // + todo generalize (ArrayList -> List)
+    protected List<ClothingPart> clothingParts = new ArrayList<>();
 
     public void add(ClothingPart part) {
         clothingParts.add(part);
     }
 
-    public ClothingPart get(int id) {
+    public ClothingPart getPart(int id) {
         return clothingParts.get(id);
     }
 

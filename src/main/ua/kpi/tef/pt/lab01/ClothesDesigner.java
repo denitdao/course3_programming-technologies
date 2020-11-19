@@ -1,63 +1,16 @@
 package ua.kpi.tef.pt.lab01;
 
 import ua.kpi.tef.pt.lab01.controller.ClothesController;
-import ua.kpi.tef.pt.lab01.exceptions.InvalidClothesIdException;
-import ua.kpi.tef.pt.lab01.exceptions.InvalidClothingSectionException;
+import ua.kpi.tef.pt.lab01.model.ClothingPart;
+import ua.kpi.tef.pt.lab01.model.UpperBodyClothes;
+import ua.kpi.tef.pt.lab01.model.parts.*;
+import ua.kpi.tef.pt.lab01.service.BodyService;
+import ua.kpi.tef.pt.lab01.service.ButtonService;
+import ua.kpi.tef.pt.lab01.service.UpperBodyClothesService;
 
 public class ClothesDesigner {
 
-    private final ClothesController clothesController = new ClothesController();
-
-    // ask about the type of action (create, edit, show, delete)
-    public void start(int action, long id, int part) {
-        System.out.println("\tType number of action you want to choose:");
-
-        switch(action){
-            case 1: {
-                System.out.println("Creating clothes.");
-                try {
-                    clothesController.createClothes(part);
-                } catch (InvalidClothingSectionException e) {
-                    System.out.println(e.getMessage()); // + todo use of exception (13)
-                }
-                break;
-            }
-            case 2: {
-                System.out.println("Editing clothes.");
-                try {
-                    clothesController.editClothes(id);
-                } catch (InvalidClothesIdException e) {
-                    System.out.println(e.getMessage());
-                }
-                break;
-            }
-            case 3: {
-                System.out.println("Showing clothes.");
-                try {
-                    clothesController.showClothes(id);
-                } catch (InvalidClothesIdException e) {
-                    System.out.println(e.getMessage());
-                }
-                break;
-            }
-            case 4: {
-                System.out.println("Deleting clothes.");
-                try {
-                    clothesController.deleteClothes(id);
-                } catch (InvalidClothesIdException e) {
-                    System.out.println(e.getMessage());
-                }
-                break;
-            }
-            case 5: { // set 0
-                System.out.println("Closing the app");
-                return;
-            }
-            default: {
-                System.out.println("Wrong action number");
-            }
-        }
-    }
+    private static final ClothesController clothesController = new ClothesController();
 
     public static void main(String[] args) {
         ClothingPart body = BodyService.create(Material.COTTON, Color.BLUE);

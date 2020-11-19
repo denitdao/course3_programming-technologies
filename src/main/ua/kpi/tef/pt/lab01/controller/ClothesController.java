@@ -14,14 +14,10 @@ import java.util.Map;
 public class ClothesController {
     private final Map<Long, UpperBodyClothes> upperBodyClothes; // + todo generalized (HashMap -> Map) (19)
     private final Map<Long, LowerBodyClothes> lowerBodyClothes;
-    private final UpperBodyClothesService upperBodyClothesService;
-    private final LowerBodyClothesService lowerBodyClothesService;
 
     public ClothesController() {
         upperBodyClothes = new HashMap<>();
         lowerBodyClothes = new HashMap<>();
-        upperBodyClothesService = new UpperBodyClothesService();
-        lowerBodyClothesService = new LowerBodyClothesService();
     }
 
     public long addUpperBody(UpperBodyClothes upperBodyClothes) {
@@ -34,37 +30,36 @@ public class ClothesController {
         return lowerBodyClothes.getId();
     }
 
-    // ask about the id of the clothes
-    public void editClothes(long id) throws InvalidClothesIdException {
-        System.out.println("Type id of the clothing you want to edit:");
-        if(lowerBodyClothes.containsKey(id)){
-            lowerBodyClothesService.edit(lowerBodyClothes.get(id));
-        }
-        else if(upperBodyClothes.containsKey(id)) {
-            upperBodyClothesService.edit(upperBodyClothes.get(id));
+    public UpperBodyClothes getUpperBody(long id) throws InvalidClothesIdException {
+        if(this.upperBodyClothes.containsKey(id)) {
+            return upperBodyClothes.get(id);
         } else {
             throw(new InvalidClothesIdException("Wrong clothes id."));
         }
     }
 
-    // ask about the id of the clothes
+    public LowerBodyClothes getLowerBody(long id) throws InvalidClothesIdException {
+        if(this.lowerBodyClothes.containsKey(id)) {
+            return lowerBodyClothes.get(id);
+        } else {
+            throw(new InvalidClothesIdException("Wrong clothes id."));
+        }
+    }
+
     public void showClothes(long id) throws InvalidClothesIdException {
         if(lowerBodyClothes.containsKey(id)){
-            lowerBodyClothesService.show(lowerBodyClothes.get(id));
-        }
-        else if(upperBodyClothes.containsKey(id)) {
-            upperBodyClothesService.show(upperBodyClothes.get(id));
+            System.out.println(lowerBodyClothes.get(id));
+        } else if(upperBodyClothes.containsKey(id)) {
+            System.out.println(upperBodyClothes.get(id));
         } else {
             throw(new InvalidClothesIdException("Wrong clothes id."));
         }
     }
 
-    // ask about the id of the clothes
     public void deleteClothes(long id) throws InvalidClothesIdException {
         if(lowerBodyClothes.containsKey(id)){
             lowerBodyClothes.remove(id);
-        }
-        else if(upperBodyClothes.containsKey(id)) {
+        } else if(upperBodyClothes.containsKey(id)) {
             upperBodyClothes.remove(id);
         } else {
             throw(new InvalidClothesIdException("Wrong clothes id."));

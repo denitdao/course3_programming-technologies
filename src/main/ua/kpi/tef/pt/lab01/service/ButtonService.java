@@ -7,31 +7,14 @@ import ua.kpi.tef.pt.lab01.model.parts.Material;
 
 public class ButtonService {
 
-    public Button create() {
-        Button leftSleeve = new Button();
-        leftSleeve.setColor(findColor());
-        leftSleeve.setMaterial(findMaterial());
-        leftSleeve.setAmount(findAmount());
-        return leftSleeve;
+    public static Button create(Material material, Color color, Integer amount) {
+        return new Button(material, color, amount);
     }
 
-    public void edit(ClothingPart clothingPart) {
+    public static void edit(ClothingPart clothingPart, Material material, Color color, Integer amount) {
         Button button = (Button) clothingPart;
-        button.setColor(findColor());
-        button.setMaterial(findMaterial());
-        button.setAmount(findAmount());
-    }
-
-    // implement user input recognition
-    private Color findColor() {
-        return Color.BLACK;
-    }
-
-    private Material findMaterial() {
-        return Material.PLASTIC;
-    }
-
-    private int findAmount(){
-        return 10;
+        if (material != null) button.setMaterial(material);
+        if (color != null) button.setColor(color);
+        if (amount != null) button.setAmount(amount);
     }
 }

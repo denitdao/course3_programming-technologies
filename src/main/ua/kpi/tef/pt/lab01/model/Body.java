@@ -8,6 +8,11 @@ public class Body implements ClothingPart {
     private Material material;
     private Color color;
 
+    public Body(Material material, Color color) {
+        this.material = material;
+        this.color = color;
+    }
+
     @Override
     public String getTitle(){
         return title;

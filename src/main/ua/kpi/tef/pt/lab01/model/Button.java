@@ -9,6 +9,12 @@ public class Button implements ClothingPart {
     private Color color;
     private int amount;
 
+    public Button(Material material, Color color, int amount) {
+        this.material = material;
+        this.color = color;
+        this.amount = amount;
+    }
+
     @Override
     public String getTitle(){
         return title;

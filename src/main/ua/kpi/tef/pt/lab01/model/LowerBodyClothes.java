@@ -9,7 +9,7 @@ public class LowerBodyClothes extends Clothes {
     /*private ClothingPart leftLeg, rightLeg; // штанины
     private ClothingPart buttons, pockets, beltLoops, fly; // пуговицы, карманы, петли для ремня, ширинка */
 
-    protected List<ClothingPart> clothingParts = new ArrayList<>(); // + todo generalize (ArrayList -> List) (19)
+    protected List<ClothingPart> clothingParts = new ArrayList<>();
 
     public void add(ClothingPart part) {
         clothingParts.add(part);

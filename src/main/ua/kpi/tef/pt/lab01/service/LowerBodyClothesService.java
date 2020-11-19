@@ -1,74 +1,66 @@
 package ua.kpi.tef.pt.lab01.service;
 
 import ua.kpi.tef.pt.lab01.model.*;
-import ua.kpi.tef.pt.lab01.model.parts.Name;
-import ua.kpi.tef.pt.lab01.model.parts.Size;
-import ua.kpi.tef.pt.lab01.model.parts.Type;
+import ua.kpi.tef.pt.lab01.model.parts.*;
 
 import java.util.Iterator;
 
 public class LowerBodyClothesService {
 
-    private final LeftLegService leftLegService = new LeftLegService();
-    private final RightLegService rightLegService = new RightLegService();
-    private final ButtonService buttonService = new ButtonService();
-    // ...
-
     /**
     * Used to create any lower body clothes. Asks user by itself
     */
-    // implement user controls
-    public LowerBodyClothes create() {
+    static public LowerBodyClothes create(Type type, Name name, Size size, String title, ClothingPart... clothingParts) {
         LowerBodyClothes lowerBodyClothes = new LowerBodyClothes();
-        lowerBodyClothes.setType(findType());
-        lowerBodyClothes.setName(findName());
-        lowerBodyClothes.setSize(findSize());
+        lowerBodyClothes.setType(type);
+        lowerBodyClothes.setName(name);
+        lowerBodyClothes.setSize(size);
+        lowerBodyClothes.setTitle(title);
 
-        lowerBodyClothes.add(leftLegService.create());
-        lowerBodyClothes.add(rightLegService.create());
-        lowerBodyClothes.add(buttonService.create());
+        lowerBodyClothes.add(clothingParts[0]);
+        //...
 
-        lowerBodyClothes.setTitle("Jeans for the tester");
         return lowerBodyClothes;
     }
 
-    // implement user controls
-    public void edit(LowerBodyClothes lowerBodyClothes) {
-        lowerBodyClothes.setType(findType());
-        lowerBodyClothes.setName(findName());
-        lowerBodyClothes.setSize(findSize());
+    public static void editGeneral(LowerBodyClothes lowerBodyClothes, Type type, Name name, Size size, String title) {
+        if(type != null) lowerBodyClothes.setType(type);
+        if(name != null) lowerBodyClothes.setName(name);
+        if(size != null) lowerBodyClothes.setSize(size);
+        if(title != null) lowerBodyClothes.setTitle(title);
+    }
 
+    public static void editLeftLeg(UpperBodyClothes lowerBodyClothes, Material material, Color color, Fit fit) {
         Iterator<ClothingPart> clothingPartIterator = lowerBodyClothes.getIterator();
         while(clothingPartIterator.hasNext()){
             ClothingPart part = clothingPartIterator.next();
             if(part instanceof LeftLeg) {
-                leftLegService.edit(part);
-            } else if(part instanceof RightLeg) {
-                rightLegService.edit(part);
-            } else if(part instanceof Button) {
-                buttonService.edit(part);
+                LeftLegService.edit(part, material, color, fit);
+                break;
             }
         }
-
-        lowerBodyClothes.setTitle("Edited Jeans for the tester");
     }
 
-    public void show(LowerBodyClothes item) {
-        System.out.println(item.toString());
+    public static void editRightLeg(LowerBodyClothes lowerBodyClothes, Material material, Color color, Fit fit) {
+        Iterator<ClothingPart> clothingPartIterator = lowerBodyClothes.getIterator();
+        while(clothingPartIterator.hasNext()){
+            ClothingPart part = clothingPartIterator.next();
+            if(part instanceof RightLeg) {
+                RightLegService.edit(part, material, color, fit);
+                break;
+            }
+        }
     }
 
-    private Type findType() {
-        return Type.MAN;
+    public static void editButton(LowerBodyClothes lowerBodyClothes, Material material, Color color, Integer amount) {
+        Iterator<ClothingPart> clothingPartIterator = lowerBodyClothes.getIterator();
+        while(clothingPartIterator.hasNext()){
+            ClothingPart part = clothingPartIterator.next();
+            if(part instanceof Button) {
+                ButtonService.edit(part, material, color, amount);
+                break;
+            }
+        }
     }
-
-    private Size findSize() {
-        return Size.M;
-    }
-
-    private Name findName() {
-        return Name.JEANS;
-    }
-
-    private String findTitle() { return "Title Lower Body"; }
 
 }

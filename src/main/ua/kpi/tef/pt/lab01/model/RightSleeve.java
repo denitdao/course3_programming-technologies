@@ -10,6 +10,12 @@ public class RightSleeve implements ClothingPart {
     private Color color;
     private Length length;
 
+    public RightSleeve(Material material, Color color, Length length) {
+        this.material = material;
+        this.color = color;
+        this.length = length;
+    }
+
     @Override
     public String getTitle(){
         return title;
