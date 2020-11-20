@@ -11,12 +11,8 @@ public class UpperBodyClothesService {
      * Used to create any lower body clothes. Asks user by itself
      */
     // todo add all parts
-    static public UpperBodyClothes create(Type type, Name name, Size size, String title, ClothingPart... clothingParts) {
-        UpperBodyClothes upperBodyClothes = new UpperBodyClothes();
-        upperBodyClothes.setType(type);
-        upperBodyClothes.setName(name);
-        upperBodyClothes.setSize(size);
-        upperBodyClothes.setTitle(title);
+    static public UpperBodyClothes create(String title, Type type, Name name, Size size, double price, ClothingPart... clothingParts) {
+        UpperBodyClothes upperBodyClothes = new UpperBodyClothes(title, type, name, size, price);
 
         upperBodyClothes.add(clothingParts[0]);
         //...
@@ -24,11 +20,12 @@ public class UpperBodyClothesService {
         return upperBodyClothes;
     }
 
-    public static void editGeneral(UpperBodyClothes upperBodyClothes, Type type, Name name, Size size, String title) {
+    public static void editGeneral(UpperBodyClothes upperBodyClothes, String title, Type type, Name name, Size size, Double price) {
+        if(title != null) upperBodyClothes.setTitle(title);
         if(type != null) upperBodyClothes.setType(type);
         if(name != null) upperBodyClothes.setName(name);
         if(size != null) upperBodyClothes.setSize(size);
-        if(title != null) upperBodyClothes.setTitle(title);
+        if(price != null) upperBodyClothes.setPrice(price);
     }
 
     public static void editBody(UpperBodyClothes upperBodyClothes, Material material, Color color) {

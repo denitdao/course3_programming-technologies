@@ -10,12 +10,8 @@ public class LowerBodyClothesService {
     /**
     * Used to create any lower body clothes. Asks user by itself
     */
-    static public LowerBodyClothes create(Type type, Name name, Size size, String title, ClothingPart... clothingParts) {
-        LowerBodyClothes lowerBodyClothes = new LowerBodyClothes();
-        lowerBodyClothes.setType(type);
-        lowerBodyClothes.setName(name);
-        lowerBodyClothes.setSize(size);
-        lowerBodyClothes.setTitle(title);
+    static public LowerBodyClothes create(String title, Type type, Name name, Size size, double price, ClothingPart... clothingParts) {
+        LowerBodyClothes lowerBodyClothes = new LowerBodyClothes(title, type, name, size, price);
 
         lowerBodyClothes.add(clothingParts[0]);
         //...
@@ -23,11 +19,12 @@ public class LowerBodyClothesService {
         return lowerBodyClothes;
     }
 
-    public static void editGeneral(LowerBodyClothes lowerBodyClothes, Type type, Name name, Size size, String title) {
+    public static void editGeneral(LowerBodyClothes lowerBodyClothes, String title, Type type, Name name, Size size, Double price) {
         if(type != null) lowerBodyClothes.setType(type);
         if(name != null) lowerBodyClothes.setName(name);
         if(size != null) lowerBodyClothes.setSize(size);
         if(title != null) lowerBodyClothes.setTitle(title);
+        if(price != null) lowerBodyClothes.setPrice(price);
     }
 
     public static void editLeftLeg(UpperBodyClothes lowerBodyClothes, Material material, Color color, Fit fit) {

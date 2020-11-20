@@ -11,6 +11,15 @@ public abstract class Clothes {
     protected Type type;
     protected Name name;
     protected Size size;
+    protected double price;
+
+    public Clothes(String title, Type type, Name name, Size size, double price) {
+        this.title = title;
+        this.type = type;
+        this.name = name;
+        this.size = size;
+        this.price = price;
+    }
 
     public long getId() {
         return id;
@@ -48,6 +57,10 @@ public abstract class Clothes {
         this.size = size;
     }
 
+    public double getPrice() { return price; }
+
+    public void setPrice(double price) { this.price = price; }
+
     @Override
     public int hashCode() {
         StringBuilder sb = new StringBuilder();
@@ -67,8 +80,10 @@ public abstract class Clothes {
         sb.append(title).append(":\n(")
                 .append(name).append(", ")
                 .append(type).append(", ")
-                .append(size).append(") hash: ")
-                .append(hashCode());
+                .append(size).append(", ")
+                .append(price).append("$)\t[hash: ")
+                .append(hashCode()).append(", id: ")
+                .append(id).append("]");
         return sb.toString();
     }
 }

@@ -1,14 +1,21 @@
 package ua.kpi.tef.pt.lab01.model;
 
+import ua.kpi.tef.pt.lab01.model.parts.Name;
+import ua.kpi.tef.pt.lab01.model.parts.Size;
+import ua.kpi.tef.pt.lab01.model.parts.Type;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class UpperBodyClothes extends Clothes {
-    /* body, leftSleeve, rightSleeve; // тело и рукава
-    collar, buttons, pockets; // воротник, пуговицы, карманы*/
-
+    /* body, leftSleeve, rightSleeve - тело и рукава
+    collar, buttons, pockets - воротник, пуговицы, карманы*/
     protected List<ClothingPart> clothingParts = new ArrayList<>();
+
+    public UpperBodyClothes(String title, Type type, Name name, Size size, double price) {
+        super(title, type, name, size, price);
+    }
 
     public void add(ClothingPart part) {
         clothingParts.add(part);

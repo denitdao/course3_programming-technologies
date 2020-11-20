@@ -16,13 +16,17 @@ public class ClothesDesigner {
         ClothingPart body = BodyService.create(Material.COTTON, Color.BLUE);
         ClothingPart button = ButtonService.create(Material.COTTON, Color.BLUE, 10);
 
-        UpperBodyClothes clothes_one = UpperBodyClothesService.create(Type.MAN, Name.COAT, Size.L, "Big Coat", body, button);
+        UpperBodyClothesService.create("Big Coat 1", Type.MAN, Name.COAT, Size.L, 81.2, body, button);
+        UpperBodyClothesService.create("Big Coat 2", Type.MAN, Name.COAT, Size.L, 81.2, body, button);
+        UpperBodyClothesService.create("Big Coat 3", Type.MAN, Name.COAT, Size.L, 81.2, body, button);
+        UpperBodyClothes clothes_one = UpperBodyClothesService.create("Big Coat", Type.MAN, Name.COAT, Size.L, 81.2, body, button);
 
         long clothes_one_id = clothesController.addUpperBody(clothes_one);
+        clothesController.addUpperBody(clothes_one);
 
         clothesController.showClothes(clothes_one_id);
 
-        UpperBodyClothesService.editGeneral(clothesController.getUpperBody(clothes_one_id), null, null, null, "new title");
+        UpperBodyClothesService.editGeneral(clothesController.getUpperBody(clothes_one_id),"new title", null, null, null, 90.2);
         UpperBodyClothesService.editBody(clothesController.getUpperBody(clothes_one_id), Material.METAL, Color.GREEN);
         UpperBodyClothesService.editButton(clothesController.getUpperBody(clothes_one_id), null, null, 4);
 
