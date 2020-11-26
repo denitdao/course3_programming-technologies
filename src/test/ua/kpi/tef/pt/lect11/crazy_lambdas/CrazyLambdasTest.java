@@ -21,7 +21,6 @@ public class CrazyLambdasTest {
         assertEquals("Hello", helloSupplier.get());
     }
 
-
     @Test
     public void testIsEmptyPredicate() {
         Predicate<String> isEmptyPredicate = CrazyLambdas.isEmptyPredicate();
