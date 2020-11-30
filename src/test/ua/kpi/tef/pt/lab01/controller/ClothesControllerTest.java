@@ -11,8 +11,9 @@ import ua.kpi.tef.pt.lab01.model.parts.Type;
 import ua.kpi.tef.pt.lab01.service.LowerBodyClothesService;
 import ua.kpi.tef.pt.lab01.service.UpperBodyClothesService;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class ClothesControllerTest {
 
@@ -71,4 +72,65 @@ class ClothesControllerTest {
         assertThrows(InvalidClothingSectionException.class, () -> clothesController.getUpperBody(idLower));
     }
 
+//    todo: lambdas
+
+    @Test
+    public void When_CalculatingAvgPrice_Expect_Result() {
+        clothesController.addUpperBody(new UpperBodyClothes(null, null, null, null, 20));
+        clothesController.addLowerBody(new LowerBodyClothes(null, null, null, null, 40));
+        clothesController.addUpperBody(new UpperBodyClothes(null, null, null, null, 60));
+        clothesController.addLowerBody(new LowerBodyClothes(null, null, null, null, 80));
+        clothesController.addUpperBody(new UpperBodyClothes(null, null, null, null, 100));
+
+        assertEquals(60, clothesController.calculateAvgPrice());
+    }
+
+    @Test
+    public void When_CalculatingAvgPriceOfEmpty_Expect_NaN() {
+        assertEquals(Double.NaN, clothesController.calculateAvgPrice());
+    }
+
+    @Test
+    public void When_GetMostExpensiveLowerClothes_Expect_Result() {
+        clothesController.addLowerBody(new LowerBodyClothes(null, null, null, null, 40));
+        clothesController.addLowerBody(new LowerBodyClothes(null, null, null, null, 80));
+
+        Optional<LowerBodyClothes> opt_mostExpensive = clothesController.getMostExpensiveLowerBodyClothes();
+
+        assertTrue(opt_mostExpensive.isPresent());
+        opt_mostExpensive.ifPresent(c -> assertEquals(80, c.getPrice()));
+    }
+
+    @Test
+    public void When_GetMostExpensiveUpperClothes_Expect_OptionalWithResult() {
+        clothesController.addUpperBody(new UpperBodyClothes(null, null, null, null, 20));
+        clothesController.addUpperBody(new UpperBodyClothes(null, null, null, null, 100));
+        clothesController.addUpperBody(new UpperBodyClothes(null, null, null, null, 60));
+
+        Optional<UpperBodyClothes> opt_mostExpensive = clothesController.getMostExpensiveUpperBodyClothes();
+
+        assertTrue(opt_mostExpensive.isPresent());
+        opt_mostExpensive.ifPresent(c -> assertEquals(100, c.getPrice()));
+    }
+
+    @Test
+    public void When_EmptyAndGetMostExpensiveClothes_Expect_EmptyOptional() {
+        assertFalse(clothesController.getMostExpensiveUpperBodyClothes().isPresent());
+        assertFalse(clothesController.getMostExpensiveLowerBodyClothes().isPresent());
+    }
+
+    @Test
+    public void When_CalculateTotalPriceOfClothesWithName_Expect_Result() {
+        clothesController.addUpperBody(new UpperBodyClothes(null, null, Name.COAT, null, 20));
+        clothesController.addUpperBody(new UpperBodyClothes(null, null, Name.JEANS, null, 100));
+        clothesController.addUpperBody(new UpperBodyClothes(null, null, Name.COAT, null, 60));
+
+        assertEquals(80, clothesController.calculateTotalPriceOf(Name.COAT));
+        assertEquals(100, clothesController.calculateTotalPriceOf(Name.JEANS));
+    }
+
+    @Test
+    public void When_EmptyAndCalculateTotalPriceOfClothesWithName_Expect_NaN() {
+        assertEquals(0., clothesController.calculateTotalPriceOf(Name.COAT));
+    }
 }
