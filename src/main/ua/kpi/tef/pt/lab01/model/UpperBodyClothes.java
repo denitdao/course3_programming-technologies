@@ -25,6 +25,11 @@ public class UpperBodyClothes extends Clothes {
     }
 
     /**
+     * Used to get Part of Lower body clothes by index.
+     */
+    public ClothingPart getPart(int index) { return clothingParts.get(index); }
+
+    /**
      * Used to get {@link Iterator<ClothingPart>} over the Upper body clothes Parts.
      */
     public Iterator<ClothingPart> getIterator(){
