@@ -17,14 +17,16 @@ public class UpperBodyClothes extends Clothes {
         super(title, type, name, size, price);
     }
 
+    /**
+     * Used to add Part to Upper body clothes.
+     */
     public void add(ClothingPart part) {
         clothingParts.add(part);
     }
 
-    public ClothingPart getPart(int id) {
-        return clothingParts.get(id);
-    }
-
+    /**
+     * Used to get {@link Iterator<ClothingPart>} over the Upper body clothes Parts.
+     */
     public Iterator<ClothingPart> getIterator(){
         return clothingParts.iterator();
     }

@@ -18,14 +18,16 @@ public class LowerBodyClothes extends Clothes {
         super(title, type, name, size, price);
     }
 
+    /**
+     * Used to add Part to Lower body clothes.
+     */
     public void add(ClothingPart part) {
         clothingParts.add(part);
     }
 
-    public ClothingPart get(int id) {
-        return clothingParts.get(id);
-    }
-
+    /**
+     * Used to get {@link Iterator<ClothingPart>} over the Lower body clothes Parts.
+     */
     public Iterator<ClothingPart> getIterator(){
         return clothingParts.iterator();
     }

@@ -11,6 +11,11 @@ public class ButtonService {
         return new Button(material, color, amount);
     }
 
+    /**
+     * Used to edit Clothing Part.
+     * Receives {@link Button} to edit and new Enum values.
+     * Pass {@code null} instead of {@code Enum} to not edit it.
+     */
     public static void edit(ClothingPart clothingPart, Material material, Color color, Integer amount) {
         Button button = (Button) clothingPart;
         if (material != null) button.setMaterial(material);

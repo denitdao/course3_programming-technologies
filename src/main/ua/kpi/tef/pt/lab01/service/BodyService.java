@@ -1,9 +1,9 @@
 package ua.kpi.tef.pt.lab01.service;
 
+import ua.kpi.tef.pt.lab01.model.Body;
+import ua.kpi.tef.pt.lab01.model.ClothingPart;
 import ua.kpi.tef.pt.lab01.model.parts.Color;
 import ua.kpi.tef.pt.lab01.model.parts.Material;
-import ua.kpi.tef.pt.lab01.model.ClothingPart;
-import ua.kpi.tef.pt.lab01.model.Body;
 
 public class BodyService {
 
@@ -11,6 +11,11 @@ public class BodyService {
         return new Body(material, color);
     }
 
+    /**
+     * Used to edit Clothing Part.
+     * Receives {@link Body} to edit and new Enum values.
+     * Pass {@code null} instead of {@code Enum} to not edit it.
+     */
     public static void edit(ClothingPart clothingPart, Material material, Color color) {
         Body body = (Body) clothingPart;
         if (material != null) body.setMaterial(material);

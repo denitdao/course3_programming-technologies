@@ -4,6 +4,10 @@ import ua.kpi.tef.pt.lab01.model.parts.Name;
 import ua.kpi.tef.pt.lab01.model.parts.Size;
 import ua.kpi.tef.pt.lab01.model.parts.Type;
 
+/**
+ * Defines the general information for the clothes.
+ * Create and edit instances of {@link LowerBodyClothes}.
+ */
 public abstract class Clothes {
     private static long counter = 0;
     protected final long id = ++counter;

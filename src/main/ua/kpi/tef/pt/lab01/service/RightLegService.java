@@ -1,10 +1,10 @@
 package ua.kpi.tef.pt.lab01.service;
 
+import ua.kpi.tef.pt.lab01.model.ClothingPart;
+import ua.kpi.tef.pt.lab01.model.RightLeg;
 import ua.kpi.tef.pt.lab01.model.parts.Color;
 import ua.kpi.tef.pt.lab01.model.parts.Fit;
 import ua.kpi.tef.pt.lab01.model.parts.Material;
-import ua.kpi.tef.pt.lab01.model.ClothingPart;
-import ua.kpi.tef.pt.lab01.model.RightLeg;
 
 public class RightLegService {
 
@@ -12,6 +12,11 @@ public class RightLegService {
         return new RightLeg(material, color, fit);
     }
 
+    /**
+     * Used to edit Clothing Part.
+     * Receives {@link RightLeg} to edit and new Enum values.
+     * Pass {@code null} instead of {@code Enum} to not edit it.
+     */
     public static void edit(ClothingPart clothingPart, Material material, Color color, Fit fit) {
         RightLeg rightLeg = (RightLeg) clothingPart;
         if (material != null) rightLeg.setMaterial(material);

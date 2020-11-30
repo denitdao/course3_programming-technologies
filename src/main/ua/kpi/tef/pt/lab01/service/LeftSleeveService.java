@@ -12,6 +12,11 @@ public class LeftSleeveService {
         return new LeftSleeve(material, color, length);
     }
 
+    /**
+     * Used to edit Clothing Part.
+     * Receives {@link LeftSleeve} to edit and new Enum values.
+     * Pass {@code null} instead of {@code Enum} to not edit it.
+     */
     public static void edit(ClothingPart clothingPart, Material material, Color color, Length length) {
         LeftSleeve leftSleeve = (LeftSleeve) clothingPart;
         if (material != null) leftSleeve.setMaterial(material);
