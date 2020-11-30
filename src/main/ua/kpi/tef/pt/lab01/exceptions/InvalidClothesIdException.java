@@ -1,10 +1,8 @@
 package ua.kpi.tef.pt.lab01.exceptions;
 
-public class InvalidClothesIdException extends RuntimeException { // + todo created exception class (12)
+import java.security.InvalidParameterException;
 
-    public InvalidClothesIdException(){
-        super();
-    }
+public class InvalidClothesIdException extends InvalidParameterException {
 
     public InvalidClothesIdException(String msg) {
         super(msg);

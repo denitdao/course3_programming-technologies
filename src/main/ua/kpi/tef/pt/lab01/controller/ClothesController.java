@@ -1,6 +1,7 @@
 package ua.kpi.tef.pt.lab01.controller;
 
 import ua.kpi.tef.pt.lab01.exceptions.InvalidClothesIdException;
+import ua.kpi.tef.pt.lab01.exceptions.InvalidClothingSectionException;
 import ua.kpi.tef.pt.lab01.model.LowerBodyClothes;
 import ua.kpi.tef.pt.lab01.model.UpperBodyClothes;
 
@@ -45,11 +46,14 @@ public class ClothesController {
      * @param id unique id of the object.
      * @return {@link UpperBodyClothes} object.
      * @throws InvalidClothesIdException if object doesn't exist.
+     * @throws InvalidClothingSectionException if object exist in another section.
      */
-    public UpperBodyClothes getUpperBody(long id) throws InvalidClothesIdException {
+    public UpperBodyClothes getUpperBody(long id) throws InvalidClothesIdException, InvalidClothingSectionException {
         if(this.upperBodyClothes.containsKey(id)) {
             return upperBodyClothes.get(id);
         } else {
+            if(this.lowerBodyClothes.containsKey(id))
+                throw(new InvalidClothingSectionException("Wrong clothing section. Try Lower Body."));
             throw(new InvalidClothesIdException("Wrong upper body clothes id."));
         }
     }
@@ -59,11 +63,14 @@ public class ClothesController {
      * @param id unique id of the object.
      * @return {@link LowerBodyClothes} object.
      * @throws InvalidClothesIdException if object doesn't exist.
+     * @throws InvalidClothingSectionException if object exist in another section.
      */
-    public LowerBodyClothes getLowerBody(long id) throws InvalidClothesIdException {
+    public LowerBodyClothes getLowerBody(long id) throws InvalidClothesIdException, InvalidClothingSectionException {
         if(this.lowerBodyClothes.containsKey(id)) {
             return lowerBodyClothes.get(id);
         } else {
+            if(this.upperBodyClothes.containsKey(id))
+                throw(new InvalidClothingSectionException("Wrong clothing section. Try Upper Body."));
             throw(new InvalidClothesIdException("Wrong lower body clothes id."));
         }
     }
