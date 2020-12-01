@@ -3,11 +3,15 @@ package ua.kpi.tef.pt.lab01.controller;
 import ua.kpi.tef.pt.lab01.exceptions.InvalidClothesIdException;
 import ua.kpi.tef.pt.lab01.exceptions.InvalidClothingSectionException;
 import ua.kpi.tef.pt.lab01.model.Clothes;
+import ua.kpi.tef.pt.lab01.model.ClothingPart;
 import ua.kpi.tef.pt.lab01.model.LowerBodyClothes;
 import ua.kpi.tef.pt.lab01.model.UpperBodyClothes;
+import ua.kpi.tef.pt.lab01.model.parts.Material;
 import ua.kpi.tef.pt.lab01.model.parts.Name;
+import ua.kpi.tef.pt.lab01.model.parts.Type;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -138,8 +142,7 @@ public class ClothesController {
      * @return {@link Double#NaN} if there is no clothes.
      */
     public double calculateAvgPrice() {
-        return getAllClothesList()
-                .stream()
+        return getAllClothesList().stream()
                 .mapToDouble(Clothes::getPrice)
                 .average()
                 .orElse(Double.NaN);
@@ -151,8 +154,7 @@ public class ClothesController {
      * @return {@link Optional<UpperBodyClothes>} empty if no clothes.
      */
     public Optional<UpperBodyClothes> getMostExpensiveUpperBodyClothes() {
-        return new ArrayList<>(upperBodyClothes.values())
-                .stream()
+        return new ArrayList<>(upperBodyClothes.values()).stream()
                 .max(Comparator.comparing(Clothes::getPrice));
     }
     /*upperBodyClothes.entrySet().stream()
@@ -180,4 +182,31 @@ public class ClothesController {
                 .map(Clothes::getPrice)
                 .reduce(0., Double::sum);
     }
+
+    /**
+     * Used to get partitioned UpperBodyClothes by Type and Name.
+     *
+     * @return {@link Map<Boolean, List<UpperBodyClothes>>} with structure of true - suitable, false - others.
+     */
+    public Map<Boolean, List<UpperBodyClothes>> getPartitionedUpperBodyClothes(Type type, Name name) {
+        return upperBodyClothes.values().stream()
+                .collect(Collectors.partitioningBy(
+                        m -> (m.getType() == type) && (m.getName() == name),
+                        Collectors.toList())
+                );
+    }
+
+    /**
+     * Used to get the most common Material used in Upper Body Clothes Parts.
+     */
+    public Optional<Material> getMostUsedUpperBodyPartMaterial() {
+        return upperBodyClothes.values().stream()
+                .flatMap(u -> u.getClothingParts().stream())
+                .map(ClothingPart::getMaterial)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+                .entrySet().stream()
+                .max(Map.Entry.comparingByValue())
+                .map(Map.Entry::getKey);
+    }
+
 }

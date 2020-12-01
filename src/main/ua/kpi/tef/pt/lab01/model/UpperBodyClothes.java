@@ -36,6 +36,8 @@ public class UpperBodyClothes extends Clothes {
         return clothingParts.iterator();
     }
 
+    public List<ClothingPart> getClothingParts() { return clothingParts; }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

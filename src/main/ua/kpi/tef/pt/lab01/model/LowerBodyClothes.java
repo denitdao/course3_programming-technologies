@@ -30,6 +30,8 @@ public class LowerBodyClothes extends Clothes {
      */
     public ClothingPart getPart(int index) { return clothingParts.get(index); }
 
+    public List<ClothingPart> getClothingParts() { return clothingParts; }
+
     /**
      * Used to get {@link Iterator<ClothingPart>} over the Lower body clothes Parts.
      */
