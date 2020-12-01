@@ -68,7 +68,11 @@ public abstract class Clothes {
     @Override
     public int hashCode() {
         StringBuilder sb = new StringBuilder();
-        sb.append(title).append(name.ordinal()).append(type.ordinal()).append(size.ordinal());
+        sb.append(title)
+                .append((name != null) ? name.ordinal() : -1)
+                .append((type != null) ? type.ordinal() : -1)
+                .append((size != null) ? size.ordinal() : -1)
+                .append(price);
         return sb.toString().hashCode();
     }
 
