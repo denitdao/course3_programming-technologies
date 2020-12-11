@@ -3,6 +3,7 @@ package ua.kpi.tef.pt.lab01.controller;
 import org.junit.jupiter.api.Test;
 import ua.kpi.tef.pt.lab01.exceptions.InvalidClothesIdException;
 import ua.kpi.tef.pt.lab01.exceptions.InvalidClothingSectionException;
+import ua.kpi.tef.pt.lab01.exceptions.NoClothesFoundException;
 import ua.kpi.tef.pt.lab01.model.Body;
 import ua.kpi.tef.pt.lab01.model.Button;
 import ua.kpi.tef.pt.lab01.model.LowerBodyClothes;
@@ -98,7 +99,7 @@ class ClothesControllerTest {
 
     @Test
     public void When_CalculatingAvgPriceOfEmpty_Expect_NaN() {
-        assertEquals(Double.NaN, clothesController.calculateAvgPrice());
+        assertThrows(NoClothesFoundException.class, () -> clothesController.calculateAvgPrice());
     }
 
     @Test

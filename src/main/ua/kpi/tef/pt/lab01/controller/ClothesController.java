@@ -2,6 +2,7 @@ package ua.kpi.tef.pt.lab01.controller;
 
 import ua.kpi.tef.pt.lab01.exceptions.InvalidClothesIdException;
 import ua.kpi.tef.pt.lab01.exceptions.InvalidClothingSectionException;
+import ua.kpi.tef.pt.lab01.exceptions.NoClothesFoundException;
 import ua.kpi.tef.pt.lab01.model.Clothes;
 import ua.kpi.tef.pt.lab01.model.ClothingPart;
 import ua.kpi.tef.pt.lab01.model.LowerBodyClothes;
@@ -145,7 +146,7 @@ public class ClothesController {
         return getAllClothesList().stream()
                 .mapToDouble(Clothes::getPrice)
                 .average()
-                .orElse(Double.NaN);
+                .orElseThrow(NoClothesFoundException::new);
     }
 
     /**
@@ -179,8 +180,10 @@ public class ClothesController {
     public double calculateTotalPriceOf(Name name) {
         return getAllClothesList().stream()
                 .filter(m -> m.getName().equals(name))
-                .map(Clothes::getPrice)
-                .reduce(0., Double::sum);
+                //.map(Clothes::getPrice)
+                .mapToDouble(Clothes::getPrice)
+                .sum();
+                //.reduce(0., Double::sum);
     }
 
     /**
