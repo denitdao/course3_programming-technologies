@@ -7,11 +7,22 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Programming_Technologies_Denys_Churchyn" />
+        <module name="clothes-designer" />
+      </profile>
+      <profile name="Annotation profile for programming-technologies" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.16/lombok-1.18.16.jar" />
+        </processorPath>
+        <module name="git-labs" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Programming_Technologies_Denys_Churchyn" target="10" />
+      <module name="clothes-designer" target="10" />
+      <module name="git-labs" target="10" />
+      <module name="programming-technologies" target="10" />
       <module name="Чурчин Денис ТВ-81" target="10" />
     </bytecodeTargetLevel>
   </component>

@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Programming_Technologies_Denys_Churchyn.iml" filepath="$PROJECT_DIR$/Programming_Technologies_Denys_Churchyn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/clothes-designer/clothes-designer.iml" filepath="$PROJECT_DIR$/clothes-designer/clothes-designer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/git-labs/git-labs.iml" filepath="$PROJECT_DIR$/git-labs/git-labs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/programming-technologies.iml" filepath="$PROJECT_DIR$/programming-technologies.iml" />
     </modules>
   </component>
 </project>
