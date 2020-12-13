@@ -1,10 +1,8 @@
-package test.ua.kpi.tef.pt.lect05.stack;
+package ua.kpi.tef.pt.lect05.stack;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-import ua.kpi.tef.pt.lect05.stack.LinkedStack;
-import ua.kpi.tef.pt.lect05.stack.Stack;
 import ua.kpi.tef.pt.lect05.stack.exception.EmptyStackException;
 
 import static org.hamcrest.CoreMatchers.is;

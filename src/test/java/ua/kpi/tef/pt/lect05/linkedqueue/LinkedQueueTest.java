@@ -1,4 +1,4 @@
-package test.ua.kpi.tef.pt.lect05.linkedqueue;
+package ua.kpi.tef.pt.lect05.linkedqueue;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
