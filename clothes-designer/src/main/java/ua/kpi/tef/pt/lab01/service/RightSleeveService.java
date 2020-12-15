@@ -8,7 +8,7 @@ import ua.kpi.tef.pt.lab01.model.parts.Material;
 
 public class RightSleeveService {
 
-    public static RightSleeve create(Material material, Color color, Length length) {
+    public RightSleeve create(Material material, Color color, Length length) {
         return new RightSleeve(material, color, length);
     }
 
@@ -17,7 +17,7 @@ public class RightSleeveService {
      * Receives {@link RightSleeve} to edit and new Enum values.
      * Pass {@code null} instead of {@code Enum} to not edit it.
      */
-    public static void edit(ClothingPart clothingPart, Material material, Color color, Length length) {
+    public void edit(ClothingPart clothingPart, Material material, Color color, Length length) {
         RightSleeve rightSleeve = (RightSleeve) clothingPart;
         if (material != null) rightSleeve.setMaterial(material);
         if (color != null) rightSleeve.setColor(color);

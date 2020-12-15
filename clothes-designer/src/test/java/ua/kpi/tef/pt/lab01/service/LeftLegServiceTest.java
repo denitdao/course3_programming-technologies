@@ -10,6 +10,9 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
 class LeftLegServiceTest {
+
+    LeftLegService leftLegService = new LeftLegService();
+
     Material defMaterial = Material.COTTON;
     Color defColor = Color.BLUE;
     Fit defFit = Fit.CLASSIC;
@@ -20,7 +23,7 @@ class LeftLegServiceTest {
 
     @Test
     public void When_CreateNewLeftLeg_Expect_ReturnNotNull() {
-        LeftLeg leftLeg = LeftLegService.create(defMaterial, defColor, defFit);
+        LeftLeg leftLeg = leftLegService.create(defMaterial, defColor, defFit);
 
         assertNotNull(leftLeg);
         assertNotNull(leftLeg.getTitle());
@@ -31,9 +34,9 @@ class LeftLegServiceTest {
 
     @Test
     public void When_EditLeftLeg_Expect_NewValue(){
-        LeftLeg leftLeg = LeftLegService.create(defMaterial, defColor, defFit);
+        LeftLeg leftLeg = leftLegService.create(defMaterial, defColor, defFit);
 
-        LeftLegService.edit(leftLeg, altMaterial, altColor, altFit);
+        leftLegService.edit(leftLeg, altMaterial, altColor, altFit);
 
         assertSame(leftLeg.getMaterial(), altMaterial);
         assertSame(leftLeg.getColor(), altColor);
@@ -42,9 +45,9 @@ class LeftLegServiceTest {
 
     @Test
     public void When_EditLeftLegWithNull_Expect_OldValue(){
-        LeftLeg leftLeg = LeftLegService.create(defMaterial, defColor, defFit);
+        LeftLeg leftLeg = leftLegService.create(defMaterial, defColor, defFit);
 
-        LeftLegService.edit(leftLeg, null, null, null);
+        leftLegService.edit(leftLeg, null, null, null);
 
         assertSame(leftLeg.getMaterial(), defMaterial);
         assertSame(leftLeg.getColor(), defColor);

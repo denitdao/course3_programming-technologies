@@ -4,35 +4,41 @@ import ua.kpi.tef.pt.lab01.controller.ClothesController;
 import ua.kpi.tef.pt.lab01.model.ClothingPart;
 import ua.kpi.tef.pt.lab01.model.UpperBodyClothes;
 import ua.kpi.tef.pt.lab01.model.parts.*;
-import ua.kpi.tef.pt.lab01.service.BodyService;
-import ua.kpi.tef.pt.lab01.service.ButtonService;
-import ua.kpi.tef.pt.lab01.service.UpperBodyClothesService;
+import ua.kpi.tef.pt.lab01.service.*;
 
 public class ClothesDesigner {
 
     private static final ClothesController clothesController = new ClothesController();
 
-    public static void main(String[] args) {
-        ClothingPart body = BodyService.create(Material.COTTON, Color.BLUE);
-        ClothingPart button = ButtonService.create(Material.COTTON, Color.BLUE, 10);
+    private static final LeftLegService leftLegService = new LeftLegService();
+    private static final RightLegService rightLegService = new RightLegService();
+    private static final BodyService bodyService = new BodyService();
+    private static final ButtonService buttonService = new ButtonService();
+    private static final LeftSleeveService leftSleeveService = new LeftSleeveService();
+    private static final RightSleeveService rightSleeveService = new RightSleeveService();
 
-        UpperBodyClothes clothes_one = UpperBodyClothesService.create("Big Coat", Type.MAN, Name.COAT,
-                Size.L,81.2, body, button);
+    private static final UpperBodyClothesService upperBodyClothesService = new UpperBodyClothesService(bodyService, buttonService, leftSleeveService, rightSleeveService);
+    private static final LowerBodyClothesService lowerBodyClothesService = new LowerBodyClothesService(leftLegService, rightLegService, buttonService);
+
+    public static void main(String[] args) {
+        ClothingPart body = bodyService.create(Material.COTTON, Color.BLUE);
+        ClothingPart button = buttonService.create(Material.COTTON, Color.BLUE, 10);
+
+        UpperBodyClothes clothes_one = upperBodyClothesService.create("Big Coat", Type.MAN, Name.COAT,
+                Size.L, 81.2, body, button);
 
         long clothes_one_id = clothesController.addUpperBody(clothes_one);
         clothesController.addUpperBody(clothes_one);
 
         clothesController.showClothes(clothes_one_id);
 
-        UpperBodyClothesService.editGeneral(clothesController.getUpperBody(clothes_one_id),"Bigger Coat", null, null, null, 99.2);
-        UpperBodyClothesService.editBody(clothesController.getUpperBody(clothes_one_id), Material.METAL, Color.GREEN);
-        UpperBodyClothesService.editButton(clothesController.getUpperBody(clothes_one_id), null, null, 4);
+        upperBodyClothesService.editGeneral(clothesController.getUpperBody(clothes_one_id), "Bigger Coat", null, null, null, 99.2);
+        upperBodyClothesService.editBody(clothesController.getUpperBody(clothes_one_id), Material.METAL, Color.GREEN);
+        upperBodyClothesService.editButton(clothesController.getUpperBody(clothes_one_id), null, null, 4);
 
         clothesController.showClothes(clothes_one_id);
     }
 }
-
-
 
 
 // приложение - конструктор дизайна одежды

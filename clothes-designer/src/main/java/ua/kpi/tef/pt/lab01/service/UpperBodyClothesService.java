@@ -10,12 +10,25 @@ import java.util.Iterator;
  * Create and edit instances of {@link UpperBodyClothes}.
  */
 public class UpperBodyClothesService {
+
+    private final BodyService bodyService;
+    private final ButtonService buttonService;
+    private final LeftSleeveService leftSleeveService;
+    private final RightSleeveService rightSleeveService;
+
+    public UpperBodyClothesService(BodyService bodyService, ButtonService buttonService, LeftSleeveService leftSleeveService, RightSleeveService rightSleeveService) {
+        this.bodyService = bodyService;
+        this.buttonService = buttonService;
+        this.leftSleeveService = leftSleeveService;
+        this.rightSleeveService = rightSleeveService;
+    }
+
     /**
      * Used to create any Upper body clothes.
      * Receives general parameters and {@link ClothingPart}s to be added.
      * @return a {@link UpperBodyClothes} object
      */
-    static public UpperBodyClothes create(String title, Type type, Name name, Size size, Double price, ClothingPart... clothingParts) {
+    public UpperBodyClothes create(String title, Type type, Name name, Size size, Double price, ClothingPart... clothingParts) {
         UpperBodyClothes upperBodyClothes = new UpperBodyClothes(title, type, name, size, price);
         for(ClothingPart clothingPart: clothingParts) {
             upperBodyClothes.add(clothingPart);
@@ -28,7 +41,7 @@ public class UpperBodyClothesService {
      * Receives {@link UpperBodyClothes} to edit and new general parameters.
      * Pass {@code null} instead of parameter to not edit it.
      */
-    public static void editGeneral(UpperBodyClothes upperBodyClothes, String title, Type type, Name name, Size size, Double price) {
+    public void editGeneral(UpperBodyClothes upperBodyClothes, String title, Type type, Name name, Size size, Double price) {
         if(title != null) upperBodyClothes.setTitle(title);
         if(type != null) upperBodyClothes.setType(type);
         if(name != null) upperBodyClothes.setName(name);
@@ -41,12 +54,12 @@ public class UpperBodyClothesService {
      * Receives {@link UpperBodyClothes} to edit and Enums for the Body.
      * Pass {@code null} instead of {@code Enum} to not edit it.
      */
-    public static void editBody(UpperBodyClothes upperBodyClothes, Material material, Color color) {
+    public void editBody(UpperBodyClothes upperBodyClothes, Material material, Color color) {
         Iterator<ClothingPart> clothingPartIterator = upperBodyClothes.getIterator();
         while(clothingPartIterator.hasNext()){
             ClothingPart part = clothingPartIterator.next();
             if(part instanceof Body) {
-                BodyService.edit(part, material, color);
+                bodyService.edit(part, material, color);
                 return;
             }
         }
@@ -57,12 +70,12 @@ public class UpperBodyClothesService {
      * Receives {@link UpperBodyClothes} to edit and Enums for the Button.
      * Pass {@code null} instead of {@code Enum} to not edit it.
      */
-    public static void editButton(UpperBodyClothes upperBodyClothes, Material material, Color color, Integer amount) {
+    public void editButton(UpperBodyClothes upperBodyClothes, Material material, Color color, Integer amount) {
         Iterator<ClothingPart> clothingPartIterator = upperBodyClothes.getIterator();
         while(clothingPartIterator.hasNext()){
             ClothingPart part = clothingPartIterator.next();
             if(part instanceof Button) {
-                ButtonService.edit(part, material, color, amount);
+                buttonService.edit(part, material, color, amount);
                 return;
             }
         }
@@ -73,12 +86,12 @@ public class UpperBodyClothesService {
      * Receives {@link UpperBodyClothes} to edit and Enums for the LeftSleeve.
      * Pass {@code null} instead of {@code Enum} to not edit it.
      */
-    public static void editLeftSleeve(UpperBodyClothes upperBodyClothes, Material material, Color color, Length length) {
+    public void editLeftSleeve(UpperBodyClothes upperBodyClothes, Material material, Color color, Length length) {
         Iterator<ClothingPart> clothingPartIterator = upperBodyClothes.getIterator();
         while(clothingPartIterator.hasNext()){
             ClothingPart part = clothingPartIterator.next();
             if(part instanceof LeftSleeve) {
-                LeftSleeveService.edit(part, material, color, length);
+                leftSleeveService.edit(part, material, color, length);
                 return;
             }
         }
@@ -89,12 +102,12 @@ public class UpperBodyClothesService {
      * Receives {@link UpperBodyClothes} to edit and Enums for the RightSleeve.
      * Pass {@code null} instead of {@code Enum} to not edit it.
      */
-    public static void editRightSleeve(UpperBodyClothes upperBodyClothes, Material material, Color color, Length length) {
+    public void editRightSleeve(UpperBodyClothes upperBodyClothes, Material material, Color color, Length length) {
         Iterator<ClothingPart> clothingPartIterator = upperBodyClothes.getIterator();
         while(clothingPartIterator.hasNext()){
             ClothingPart part = clothingPartIterator.next();
             if(part instanceof RightSleeve) {
-                RightSleeveService.edit(part, material, color, length);
+                rightSleeveService.edit(part, material, color, length);
                 return;
             }
         }

@@ -11,6 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 
 class LeftSleeveServiceTest {
 
+    LeftSleeveService leftSleeveService = new LeftSleeveService();
+
     Material defMaterial = Material.COTTON;
     Color defColor = Color.BLUE;
     Length defLength = Length.SHORT;
@@ -21,7 +23,7 @@ class LeftSleeveServiceTest {
 
     @Test
     public void When_CreateNewLeftSleeve_Expect_ReturnNotNull() {
-        LeftSleeve leftSleeve = LeftSleeveService.create(defMaterial, defColor, defLength);
+        LeftSleeve leftSleeve = leftSleeveService.create(defMaterial, defColor, defLength);
 
         assertNotNull(leftSleeve);
         assertNotNull(leftSleeve.getTitle());
@@ -32,9 +34,9 @@ class LeftSleeveServiceTest {
 
     @Test
     public void When_EditLeftSleeve_Expect_NewValue(){
-        LeftSleeve rightSleeve = LeftSleeveService.create(defMaterial, defColor, defLength);
+        LeftSleeve rightSleeve = leftSleeveService.create(defMaterial, defColor, defLength);
 
-        LeftSleeveService.edit(rightSleeve, altMaterial, altColor, altLength);
+        leftSleeveService.edit(rightSleeve, altMaterial, altColor, altLength);
 
         assertSame(rightSleeve.getMaterial(), altMaterial);
         assertSame(rightSleeve.getColor(), altColor);
@@ -43,9 +45,9 @@ class LeftSleeveServiceTest {
 
     @Test
     public void When_EditLeftSleeveWithNull_Expect_OldValue(){
-        LeftSleeve rightSleeve = LeftSleeveService.create(defMaterial, defColor, defLength);
+        LeftSleeve rightSleeve = leftSleeveService.create(defMaterial, defColor, defLength);
 
-        LeftSleeveService.edit(rightSleeve, null, null, null);
+        leftSleeveService.edit(rightSleeve, null, null, null);
 
         assertSame(rightSleeve.getMaterial(), defMaterial);
         assertSame(rightSleeve.getColor(), defColor);

@@ -7,7 +7,7 @@ import ua.kpi.tef.pt.lab01.model.parts.Material;
 
 public class ButtonService {
 
-    public static Button create(Material material, Color color, Integer amount) {
+    public Button create(Material material, Color color, Integer amount) {
         return new Button(material, color, amount);
     }
 
@@ -16,7 +16,7 @@ public class ButtonService {
      * Receives {@link Button} to edit and new Enum values.
      * Pass {@code null} instead of {@code Enum} to not edit it.
      */
-    public static void edit(ClothingPart clothingPart, Material material, Color color, Integer amount) {
+    public void edit(ClothingPart clothingPart, Material material, Color color, Integer amount) {
         Button button = (Button) clothingPart;
         if (material != null) button.setMaterial(material);
         if (color != null) button.setColor(color);

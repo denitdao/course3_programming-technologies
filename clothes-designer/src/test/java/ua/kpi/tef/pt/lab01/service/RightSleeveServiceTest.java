@@ -11,6 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 
 class RightSleeveServiceTest {
 
+    RightSleeveService rightSleeveService = new RightSleeveService();
+
     Material defMaterial = Material.COTTON;
     Color defColor = Color.BLUE;
     Length defLength = Length.SHORT;
@@ -21,7 +23,7 @@ class RightSleeveServiceTest {
 
     @Test
     public void When_CreateNewRightSleeve_Expect_ReturnNotNull() {
-        RightSleeve rightSleeve = RightSleeveService.create(defMaterial, defColor, defLength);
+        RightSleeve rightSleeve = rightSleeveService.create(defMaterial, defColor, defLength);
 
         assertNotNull(rightSleeve);
         assertNotNull(rightSleeve.getTitle());
@@ -32,9 +34,9 @@ class RightSleeveServiceTest {
 
     @Test
     public void When_EditRightSleeve_Expect_NewValue(){
-        RightSleeve rightSleeve = RightSleeveService.create(defMaterial, defColor, defLength);
+        RightSleeve rightSleeve = rightSleeveService.create(defMaterial, defColor, defLength);
 
-        RightSleeveService.edit(rightSleeve, altMaterial, altColor, altLength);
+        rightSleeveService.edit(rightSleeve, altMaterial, altColor, altLength);
 
         assertSame(rightSleeve.getMaterial(), altMaterial);
         assertSame(rightSleeve.getColor(), altColor);
@@ -43,9 +45,9 @@ class RightSleeveServiceTest {
 
     @Test
     public void When_EditRightSleeveWithNull_Expect_OldValue(){
-        RightSleeve rightSleeve = RightSleeveService.create(defMaterial, defColor, defLength);
+        RightSleeve rightSleeve = rightSleeveService.create(defMaterial, defColor, defLength);
 
-        RightSleeveService.edit(rightSleeve, null, null, null);
+        rightSleeveService.edit(rightSleeve, null, null, null);
 
         assertSame(rightSleeve.getMaterial(), defMaterial);
         assertSame(rightSleeve.getColor(), defColor);

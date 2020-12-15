@@ -8,7 +8,7 @@ import ua.kpi.tef.pt.lab01.model.parts.Material;
 
 public class LeftLegService {
 
-    public static LeftLeg create(Material material, Color color, Fit fit) {
+    public LeftLeg create(Material material, Color color, Fit fit) {
         return new LeftLeg(material, color, fit);
     }
 
@@ -17,7 +17,7 @@ public class LeftLegService {
      * Receives {@link LeftLeg} to edit and new Enum values.
      * Pass {@code null} instead of {@code Enum} to not edit it.
      */
-    public static void edit(ClothingPart clothingPart, Material material, Color color, Fit fit) {
+    public void edit(ClothingPart clothingPart, Material material, Color color, Fit fit) {
         LeftLeg leftLeg = (LeftLeg) clothingPart;
         if (material != null) leftLeg.setMaterial(material);
         if (color != null) leftLeg.setColor(color);

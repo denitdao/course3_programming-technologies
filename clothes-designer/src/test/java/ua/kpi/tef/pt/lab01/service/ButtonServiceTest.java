@@ -9,6 +9,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ButtonServiceTest {
 
+    ButtonService buttonService = new ButtonService();
+
     Material defMaterial = Material.COTTON;
     Color defColor = Color.BLUE;
     Integer defAmount = 10;
@@ -19,7 +21,7 @@ class ButtonServiceTest {
 
     @Test
     public void When_CreateNewButton_Expect_ReturnNotNull() {
-        Button button = ButtonService.create(defMaterial, defColor, defAmount);
+        Button button = buttonService.create(defMaterial, defColor, defAmount);
 
         assertNotNull(button);
         assertNotNull(button.getTitle());
@@ -30,9 +32,9 @@ class ButtonServiceTest {
 
     @Test
     public void When_EditButton_Expect_NewValue(){
-        Button button = ButtonService.create(defMaterial, defColor, defAmount);
+        Button button = buttonService.create(defMaterial, defColor, defAmount);
 
-        ButtonService.edit(button, altMaterial, altColor, altAmount);
+        buttonService.edit(button, altMaterial, altColor, altAmount);
 
         assertSame(button.getMaterial(), altMaterial);
         assertSame(button.getColor(), altColor);
@@ -41,9 +43,9 @@ class ButtonServiceTest {
 
     @Test
     public void When_EditButtonWithNull_Expect_OldValue(){
-        Button button = ButtonService.create(defMaterial, defColor, defAmount);
+        Button button = buttonService.create(defMaterial, defColor, defAmount);
 
-        ButtonService.edit(button, null, null, null);
+        buttonService.edit(button, null, null, null);
 
         assertSame(button.getMaterial(), defMaterial);
         assertSame(button.getColor(), defColor);

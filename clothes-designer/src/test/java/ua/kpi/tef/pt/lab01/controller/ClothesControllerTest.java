@@ -9,8 +9,7 @@ import ua.kpi.tef.pt.lab01.model.Button;
 import ua.kpi.tef.pt.lab01.model.LowerBodyClothes;
 import ua.kpi.tef.pt.lab01.model.UpperBodyClothes;
 import ua.kpi.tef.pt.lab01.model.parts.*;
-import ua.kpi.tef.pt.lab01.service.LowerBodyClothesService;
-import ua.kpi.tef.pt.lab01.service.UpperBodyClothesService;
+import ua.kpi.tef.pt.lab01.service.*;
 
 import java.util.*;
 
@@ -19,9 +18,20 @@ import static org.junit.jupiter.api.Assertions.*;
 class ClothesControllerTest {
 
     ClothesController clothesController = new ClothesController();
-    LowerBodyClothes defLowerBodyClothes = LowerBodyClothesService.create("Def Lower Body", Type.MAN, Name.JEANS,
+
+    LeftLegService leftLegService = new LeftLegService();
+    RightLegService rightLegService = new RightLegService();
+    BodyService bodyService = new BodyService();
+    ButtonService buttonService = new ButtonService();
+    LeftSleeveService leftSleeveService = new LeftSleeveService();
+    RightSleeveService rightSleeveService = new RightSleeveService();
+
+    UpperBodyClothesService upperBodyClothesService = new UpperBodyClothesService(bodyService, buttonService, leftSleeveService, rightSleeveService);
+    LowerBodyClothesService lowerBodyClothesService = new LowerBodyClothesService(leftLegService, rightLegService, buttonService);
+
+    LowerBodyClothes defLowerBodyClothes = lowerBodyClothesService.create("Def Lower Body", Type.MAN, Name.JEANS,
             Size.L,80.);
-    UpperBodyClothes defUpperBodyClothes = UpperBodyClothesService.create("Def Upper Body", Type.MAN, Name.COAT,
+    UpperBodyClothes defUpperBodyClothes = upperBodyClothesService.create("Def Upper Body", Type.MAN, Name.COAT,
             Size.L,90.);
 
     @Test
@@ -75,16 +85,14 @@ class ClothesControllerTest {
 
     @Test
     public void When_ConvertAllToClothes_Expect_PrintAllData(){
-        UpperBodyClothes example = UpperBodyClothesService.create(null, Type.MAN, null, null, 20., new Body(Material.COTTON, Color.BLUE), new Button(Material.METAL, Color.BLUE, 10));
-        clothesController.addLowerBody(LowerBodyClothesService.create(null, Type.CHILDREN, null, null, 40., new Button(Material.PLASTIC, Color.BLUE, 30)));
+        UpperBodyClothes example = upperBodyClothesService.create(null, Type.MAN, null, null, 20., new Body(Material.COTTON, Color.BLUE), new Button(Material.METAL, Color.BLUE, 10));
+        clothesController.addLowerBody(lowerBodyClothesService.create(null, Type.CHILDREN, null, null, 40., new Button(Material.PLASTIC, Color.BLUE, 30)));
 
         long first = clothesController.addUpperBody(example);
 
         assertEquals(clothesController.getAllClothesMap().get(first), example);
         assertEquals(clothesController.getAllClothesMap().get(first).toString(), example.toString());
     }
-
-//    todo: lambdas
 
     @Test
     public void When_CalculatingAvgPrice_Expect_Result() {
@@ -99,7 +107,7 @@ class ClothesControllerTest {
 
     @Test
     public void When_CalculatingAvgPriceOfEmpty_Expect_NaN() {
-        assertThrows(NoClothesFoundException.class, () -> clothesController.calculateAvgPrice());
+        assertThrows(NoClothesFoundException.class, clothesController::calculateAvgPrice);
     }
 
     @Test
@@ -177,13 +185,13 @@ class ClothesControllerTest {
 
     @Test
     public void When_GetUpperBodyPartsMostUsedMaterial_Expect_OptionalWithResult() {
-        UpperBodyClothes def_1 = UpperBodyClothesService.create(null, Type.MAN, null, null, 20.,
+        UpperBodyClothes def_1 = upperBodyClothesService.create(null, Type.MAN, null, null, 20.,
                 new Body(Material.COTTON, Color.BLUE),
                 new Button(Material.PLASTIC, Color.BLUE, 10));
-        UpperBodyClothes def_2 = UpperBodyClothesService.create(null, Type.MAN, null, null, 40.,
+        UpperBodyClothes def_2 = upperBodyClothesService.create(null, Type.MAN, null, null, 40.,
                 new Body(Material.SILK, Color.BLUE),
                 new Button(Material.METAL, Color.BLUE, 15));
-        UpperBodyClothes def_3 = UpperBodyClothesService.create(null, Type.MAN, null, null, 60.,
+        UpperBodyClothes def_3 = upperBodyClothesService.create(null, Type.MAN, null, null, 60.,
                 new Body(Material.COTTON, Color.BLUE),
                 new Button(Material.VISCOSE, Color.BLUE, 20));
 
@@ -198,9 +206,9 @@ class ClothesControllerTest {
 
     @Test
     public void When_GetUpperBodyPartsMostUsedMaterialWhenNone_Expect_OptionalEmpty() {
-        UpperBodyClothes def_1 = UpperBodyClothesService.create(null, Type.MAN, null, null, 20.);
-        UpperBodyClothes def_2 = UpperBodyClothesService.create(null, Type.MAN, null, null, 40.);
-        UpperBodyClothes def_3 = UpperBodyClothesService.create(null, Type.MAN, null, null, 60.);
+        UpperBodyClothes def_1 = upperBodyClothesService.create(null, Type.MAN, null, null, 20.);
+        UpperBodyClothes def_2 = upperBodyClothesService.create(null, Type.MAN, null, null, 40.);
+        UpperBodyClothes def_3 = upperBodyClothesService.create(null, Type.MAN, null, null, 60.);
 
         clothesController.addUpperBody(def_1);
         clothesController.addUpperBody(def_2);

@@ -10,27 +10,33 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class LowerBodyClothesServiceTest {
 
+    LeftLegService leftLegService = new LeftLegService();
+    RightLegService rightLegService = new RightLegService();
+    ButtonService buttonService = new ButtonService();
+
+    LowerBodyClothesService lowerBodyClothesService = new LowerBodyClothesService(leftLegService, rightLegService, buttonService);
+
     String defTitle = "Default Title";
     Type defType = Type.CHILDREN;
     Name defName = Name.JEANS;
     Size defSize = Size.L;
     Double defPrice = 80.;
-    LeftLeg defLeftLeg = LeftLegService.create(Material.COTTON, Color.BLUE, Fit.CLASSIC);
-    RightLeg defRightLeg = RightLegService.create(Material.COTTON, Color.BLUE, Fit.CLASSIC);
-    Button defButton = ButtonService.create(Material.COTTON, Color.BLUE, 10);
+    LeftLeg defLeftLeg = leftLegService.create(Material.COTTON, Color.BLUE, Fit.CLASSIC);
+    RightLeg defRightLeg = rightLegService.create(Material.COTTON, Color.BLUE, Fit.CLASSIC);
+    Button defButton = buttonService.create(Material.COTTON, Color.BLUE, 10);
 
     String altTitle = "Alternative Title";
     Type altType = Type.MAN;
     Name altName = Name.SHORTS;
     Size altSize = Size.M;
     Double altPrice = 100.;
-    LeftLeg altLeftLeg = LeftLegService.create(Material.LEATHER, Color.BLACK, Fit.REGULAR);
-    RightLeg altRightLeg = RightLegService.create(Material.LEATHER, Color.BLACK, Fit.REGULAR);
-    Button altButton = ButtonService.create(Material.LEATHER, Color.BLACK, 15);
+    LeftLeg altLeftLeg = leftLegService.create(Material.LEATHER, Color.BLACK, Fit.REGULAR);
+    RightLeg altRightLeg = rightLegService.create(Material.LEATHER, Color.BLACK, Fit.REGULAR);
+    Button altButton = buttonService.create(Material.LEATHER, Color.BLACK, 15);
 
     @Test
     public void When_CreateNewLowerBodyClothes_Expect_ReturnNotNull() {
-        LowerBodyClothes lowerBodyClothes = LowerBodyClothesService.create(defTitle, defType, defName,
+        LowerBodyClothes lowerBodyClothes = lowerBodyClothesService.create(defTitle, defType, defName,
                 defSize, defPrice, defLeftLeg, defRightLeg, defButton);
 
         assertNotNull(lowerBodyClothes);
@@ -42,10 +48,10 @@ class LowerBodyClothesServiceTest {
 
     @Test
     public void When_EditGeneralLowerBodyClothes_Expect_NewValue(){
-        LowerBodyClothes lowerBodyClothes = LowerBodyClothesService.create(defTitle, defType, defName,
+        LowerBodyClothes lowerBodyClothes = lowerBodyClothesService.create(defTitle, defType, defName,
                 defSize, defPrice, defLeftLeg, defRightLeg, defButton);
 
-        LowerBodyClothesService.editGeneral(lowerBodyClothes, altTitle, altType, altName, altSize, altPrice);
+        lowerBodyClothesService.editGeneral(lowerBodyClothes, altTitle, altType, altName, altSize, altPrice);
 
         assertSame(lowerBodyClothes.getTitle(), altTitle);
         assertSame(lowerBodyClothes.getType(), altType);
@@ -56,12 +62,12 @@ class LowerBodyClothesServiceTest {
 
     @Test
     public void When_EditLowerBodyClothesClothingPart_Expect_NewValue(){
-        LowerBodyClothes lowerBodyClothes = LowerBodyClothesService.create(defTitle, defType, defName,
+        LowerBodyClothes lowerBodyClothes = lowerBodyClothesService.create(defTitle, defType, defName,
                 defSize, defPrice, defLeftLeg, defRightLeg, defButton);
 
-        LowerBodyClothesService.editLeftLeg(lowerBodyClothes, Material.LEATHER, Color.BLACK, Fit.REGULAR);
-        LowerBodyClothesService.editRightLeg(lowerBodyClothes, Material.LEATHER, Color.BLACK, Fit.REGULAR);
-        LowerBodyClothesService.editButton(lowerBodyClothes, Material.LEATHER, Color.BLACK, 15);
+        lowerBodyClothesService.editLeftLeg(lowerBodyClothes, Material.LEATHER, Color.BLACK, Fit.REGULAR);
+        lowerBodyClothesService.editRightLeg(lowerBodyClothes, Material.LEATHER, Color.BLACK, Fit.REGULAR);
+        lowerBodyClothesService.editButton(lowerBodyClothes, Material.LEATHER, Color.BLACK, 15);
 
         assertEquals(lowerBodyClothes.getPart(0).getMaterial(), altLeftLeg.getMaterial());
         assertEquals(lowerBodyClothes.getPart(1).getMaterial(), altRightLeg.getMaterial());
@@ -70,10 +76,10 @@ class LowerBodyClothesServiceTest {
 
     @Test
     public void When_EditGeneralLowerBodyClothesWithNull_Expect_OldValue(){
-        LowerBodyClothes lowerBodyClothes = LowerBodyClothesService.create(defTitle, defType, defName,
+        LowerBodyClothes lowerBodyClothes = lowerBodyClothesService.create(defTitle, defType, defName,
                 defSize, defPrice, defLeftLeg, defRightLeg, defButton);
 
-        LowerBodyClothesService.editGeneral(lowerBodyClothes, null, null, null, null, null);
+        lowerBodyClothesService.editGeneral(lowerBodyClothes, null, null, null, null, null);
 
         assertSame(lowerBodyClothes.getTitle(), defTitle);
         assertSame(lowerBodyClothes.getType(), defType);
@@ -84,10 +90,10 @@ class LowerBodyClothesServiceTest {
 
     @Test
     public void When_GenerateLowerBodyClothes_Expect_DifferentHashcode(){
-        LowerBodyClothes lowerBodyClothes1 = LowerBodyClothesService.create(defTitle, defType, defName,
+        LowerBodyClothes lowerBodyClothes1 = lowerBodyClothesService.create(defTitle, defType, defName,
                 defSize, defPrice, defLeftLeg, defRightLeg, defButton);
 
-        LowerBodyClothes lowerBodyClothes2 = LowerBodyClothesService.create(altTitle, altType, altName,
+        LowerBodyClothes lowerBodyClothes2 = lowerBodyClothesService.create(altTitle, altType, altName,
                 altSize, altPrice, altLeftLeg, altRightLeg, altButton);
 
         assertNotEquals(lowerBodyClothes1.hashCode(), lowerBodyClothes2.hashCode());
