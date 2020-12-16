@@ -37,11 +37,11 @@ class UpperBodyClothesServiceTest {
 
     @Test
     public void When_CreateNewUpperBodyClothes_Expect_ReturnNotNull() {
-        UpperBodyClothes lowerBodyClothes = upperBodyClothesService.create(defTitle, defType, defName,
+        UpperBodyClothes upperBodyClothes = upperBodyClothesService.create(defTitle, defType, defName,
                 defSize, defPrice, defLeftSleeve, defRightSleeve, defButton);
 
-        assertNotNull(lowerBodyClothes);
-        Iterator<ClothingPart> clothingPartIterator = lowerBodyClothes.getIterator();
+        assertNotNull(upperBodyClothes);
+        Iterator<ClothingPart> clothingPartIterator = upperBodyClothes.getIterator();
         while(clothingPartIterator.hasNext()){
             assertNotNull(clothingPartIterator.next());
         }

@@ -63,6 +63,7 @@ public class UpperBodyClothesService {
                 return;
             }
         }
+        upperBodyClothes.add(bodyService.create(material, color));
     }
 
     /**
@@ -79,6 +80,7 @@ public class UpperBodyClothesService {
                 return;
             }
         }
+        upperBodyClothes.add(buttonService.create(material, color, amount));
     }
 
     /**
@@ -95,6 +97,7 @@ public class UpperBodyClothesService {
                 return;
             }
         }
+        upperBodyClothes.add(leftSleeveService.create(material, color, length));
     }
 
     /**
@@ -111,6 +114,7 @@ public class UpperBodyClothesService {
                 return;
             }
         }
+        upperBodyClothes.add(rightSleeveService.create(material, color, length));
     }
 
 }
