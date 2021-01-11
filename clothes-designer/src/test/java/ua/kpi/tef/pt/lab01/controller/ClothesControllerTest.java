@@ -17,21 +17,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ClothesControllerTest {
 
-    ClothesController clothesController = new ClothesController();
+    final ClothesController clothesController = new ClothesController();
 
-    LeftLegService leftLegService = new LeftLegService();
-    RightLegService rightLegService = new RightLegService();
-    BodyService bodyService = new BodyService();
-    ButtonService buttonService = new ButtonService();
-    LeftSleeveService leftSleeveService = new LeftSleeveService();
-    RightSleeveService rightSleeveService = new RightSleeveService();
+    final LeftLegService leftLegService = new LeftLegService();
+    final RightLegService rightLegService = new RightLegService();
+    final BodyService bodyService = new BodyService();
+    final ButtonService buttonService = new ButtonService();
+    final LeftSleeveService leftSleeveService = new LeftSleeveService();
+    final RightSleeveService rightSleeveService = new RightSleeveService();
 
-    UpperBodyClothesService upperBodyClothesService = new UpperBodyClothesService(bodyService, buttonService, leftSleeveService, rightSleeveService);
-    LowerBodyClothesService lowerBodyClothesService = new LowerBodyClothesService(leftLegService, rightLegService, buttonService);
+    final UpperBodyClothesService upperBodyClothesService = new UpperBodyClothesService(bodyService, buttonService, leftSleeveService, rightSleeveService);
+    final LowerBodyClothesService lowerBodyClothesService = new LowerBodyClothesService(leftLegService, rightLegService, buttonService);
 
-    LowerBodyClothes defLowerBodyClothes = lowerBodyClothesService.create("Def Lower Body", Type.MAN, Name.JEANS,
+    final LowerBodyClothes defLowerBodyClothes = lowerBodyClothesService.create("Def Lower Body", Type.MAN, Name.JEANS,
             Size.L,80.);
-    UpperBodyClothes defUpperBodyClothes = upperBodyClothesService.create("Def Upper Body", Type.MAN, Name.COAT,
+    final UpperBodyClothes defUpperBodyClothes = upperBodyClothesService.create("Def Upper Body", Type.MAN, Name.COAT,
             Size.L,90.);
 
     @Test

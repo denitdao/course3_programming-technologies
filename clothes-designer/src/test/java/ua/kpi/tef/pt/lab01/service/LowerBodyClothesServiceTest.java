@@ -10,29 +10,29 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class LowerBodyClothesServiceTest {
 
-    LeftLegService leftLegService = new LeftLegService();
-    RightLegService rightLegService = new RightLegService();
-    ButtonService buttonService = new ButtonService();
+    final LeftLegService leftLegService = new LeftLegService();
+    final RightLegService rightLegService = new RightLegService();
+    final ButtonService buttonService = new ButtonService();
 
-    LowerBodyClothesService lowerBodyClothesService = new LowerBodyClothesService(leftLegService, rightLegService, buttonService);
+    final LowerBodyClothesService lowerBodyClothesService = new LowerBodyClothesService(leftLegService, rightLegService, buttonService);
 
-    String defTitle = "Default Title";
-    Type defType = Type.CHILDREN;
-    Name defName = Name.JEANS;
-    Size defSize = Size.L;
-    Double defPrice = 80.;
-    LeftLeg defLeftLeg = leftLegService.create(Material.COTTON, Color.BLUE, Fit.CLASSIC);
-    RightLeg defRightLeg = rightLegService.create(Material.COTTON, Color.BLUE, Fit.CLASSIC);
-    Button defButton = buttonService.create(Material.COTTON, Color.BLUE, 10);
+    final String defTitle = "Default Title";
+    final Type defType = Type.CHILDREN;
+    final Name defName = Name.JEANS;
+    final Size defSize = Size.L;
+    final Double defPrice = 80.;
+    final LeftLeg defLeftLeg = leftLegService.create(Material.COTTON, Color.BLUE, Fit.CLASSIC);
+    final RightLeg defRightLeg = rightLegService.create(Material.COTTON, Color.BLUE, Fit.CLASSIC);
+    final Button defButton = buttonService.create(Material.COTTON, Color.BLUE, 10);
 
-    String altTitle = "Alternative Title";
-    Type altType = Type.MAN;
-    Name altName = Name.SHORTS;
-    Size altSize = Size.M;
-    Double altPrice = 100.;
-    LeftLeg altLeftLeg = leftLegService.create(Material.LEATHER, Color.BLACK, Fit.REGULAR);
-    RightLeg altRightLeg = rightLegService.create(Material.LEATHER, Color.BLACK, Fit.REGULAR);
-    Button altButton = buttonService.create(Material.LEATHER, Color.BLACK, 15);
+    final String altTitle = "Alternative Title";
+    final Type altType = Type.MAN;
+    final Name altName = Name.SHORTS;
+    final Size altSize = Size.M;
+    final Double altPrice = 100.;
+    final LeftLeg altLeftLeg = leftLegService.create(Material.LEATHER, Color.BLACK, Fit.REGULAR);
+    final RightLeg altRightLeg = rightLegService.create(Material.LEATHER, Color.BLACK, Fit.REGULAR);
+    final Button altButton = buttonService.create(Material.LEATHER, Color.BLACK, 15);
 
     @Test
     public void When_CreateNewLowerBodyClothes_Expect_ReturnNotNull() {

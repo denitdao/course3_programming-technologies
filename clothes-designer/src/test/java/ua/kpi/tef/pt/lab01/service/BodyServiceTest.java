@@ -9,13 +9,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BodyServiceTest {
 
-    static BodyService bodyService = new BodyService();
+    static final BodyService bodyService = new BodyService();
 
-    static Material defMaterial = Material.COTTON;
-    static Color defColor = Color.BLUE;
+    static final Material defMaterial = Material.COTTON;
+    static final Color defColor = Color.BLUE;
 
-    static Material altMaterial = Material.LEATHER;
-    static Color altColor = Color.BLACK;
+    static final Material altMaterial = Material.LEATHER;
+    static final Color altColor = Color.BLACK;
 
     @Test
     public void When_CreateNewBody_Expect_ReturnNotNull() {

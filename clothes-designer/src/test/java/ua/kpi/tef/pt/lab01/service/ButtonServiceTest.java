@@ -9,15 +9,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ButtonServiceTest {
 
-    ButtonService buttonService = new ButtonService();
+    final ButtonService buttonService = new ButtonService();
 
-    Material defMaterial = Material.COTTON;
-    Color defColor = Color.BLUE;
-    Integer defAmount = 10;
+    final Material defMaterial = Material.COTTON;
+    final Color defColor = Color.BLUE;
+    final Integer defAmount = 10;
 
-    Material altMaterial = Material.LEATHER;
-    Color altColor = Color.BLACK;
-    Integer altAmount = 15;
+    final Material altMaterial = Material.LEATHER;
+    final Color altColor = Color.BLACK;
+    final Integer altAmount = 15;
 
     @Test
     public void When_CreateNewButton_Expect_ReturnNotNull() {

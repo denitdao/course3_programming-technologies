@@ -10,7 +10,7 @@ import static org.junit.Assert.assertThat;
 
 @RunWith(JUnit4.class)
 public class StackTest {
-    private Stack<Integer> intStack = new LinkedStack<>();
+    private final Stack<Integer> intStack = new LinkedStack<>();
 
     @Test
     public void testPushElementOntoEmptyStack() {

@@ -15,7 +15,7 @@ import java.util.stream.Stream;
  * Implement methods using Stream API
  */
 public class AccountAnalytics {
-    private Collection<Account> accounts;
+    private final Collection<Account> accounts;
 
     public static AccountAnalytics of(Collection<Account> accounts) {
         return new AccountAnalytics(accounts);

@@ -10,30 +10,30 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class UpperBodyClothesServiceTest {
 
-    BodyService bodyService = new BodyService();
-    ButtonService buttonService = new ButtonService();
-    LeftSleeveService leftSleeveService = new LeftSleeveService();
-    RightSleeveService rightSleeveService = new RightSleeveService();
+    final BodyService bodyService = new BodyService();
+    final ButtonService buttonService = new ButtonService();
+    final LeftSleeveService leftSleeveService = new LeftSleeveService();
+    final RightSleeveService rightSleeveService = new RightSleeveService();
 
-    UpperBodyClothesService upperBodyClothesService = new UpperBodyClothesService(bodyService, buttonService, leftSleeveService, rightSleeveService);
+    final UpperBodyClothesService upperBodyClothesService = new UpperBodyClothesService(bodyService, buttonService, leftSleeveService, rightSleeveService);
 
-    String defTitle = "Default Title";
-    Type defType = Type.CHILDREN;
-    Name defName = Name.JACKET;
-    Size defSize = Size.L;
-    Double defPrice = 80.;
-    LeftSleeve defLeftSleeve = leftSleeveService.create(Material.COTTON, Color.BLUE, Length.LONG);
-    RightSleeve defRightSleeve = rightSleeveService.create(Material.COTTON, Color.BLUE, Length.LONG);
-    Button defButton = buttonService.create(Material.COTTON, Color.BLUE, 10);
+    final String defTitle = "Default Title";
+    final Type defType = Type.CHILDREN;
+    final Name defName = Name.JACKET;
+    final Size defSize = Size.L;
+    final Double defPrice = 80.;
+    final LeftSleeve defLeftSleeve = leftSleeveService.create(Material.COTTON, Color.BLUE, Length.LONG);
+    final RightSleeve defRightSleeve = rightSleeveService.create(Material.COTTON, Color.BLUE, Length.LONG);
+    final Button defButton = buttonService.create(Material.COTTON, Color.BLUE, 10);
 
-    String altTitle = "Alternative Title";
-    Type altType = Type.MAN;
-    Name altName = Name.COAT;
-    Size altSize = Size.M;
-    Double altPrice = 100.;
-    LeftSleeve altLeftSleeve = leftSleeveService.create(Material.LEATHER, Color.BLACK, Length.SHORT);
-    RightSleeve altRightSleeve = rightSleeveService.create(Material.LEATHER, Color.BLACK, Length.SHORT);
-    Button altButton = buttonService.create(Material.LEATHER, Color.BLACK, 15);
+    final String altTitle = "Alternative Title";
+    final Type altType = Type.MAN;
+    final Name altName = Name.COAT;
+    final Size altSize = Size.M;
+    final Double altPrice = 100.;
+    final LeftSleeve altLeftSleeve = leftSleeveService.create(Material.LEATHER, Color.BLACK, Length.SHORT);
+    final RightSleeve altRightSleeve = rightSleeveService.create(Material.LEATHER, Color.BLACK, Length.SHORT);
+    final Button altButton = buttonService.create(Material.LEATHER, Color.BLACK, 15);
 
     @Test
     public void When_CreateNewUpperBodyClothes_Expect_ReturnNotNull() {

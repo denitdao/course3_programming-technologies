@@ -11,15 +11,15 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 
 class RightSleeveServiceTest {
 
-    RightSleeveService rightSleeveService = new RightSleeveService();
+    final RightSleeveService rightSleeveService = new RightSleeveService();
 
-    Material defMaterial = Material.COTTON;
-    Color defColor = Color.BLUE;
-    Length defLength = Length.SHORT;
+    final Material defMaterial = Material.COTTON;
+    final Color defColor = Color.BLUE;
+    final Length defLength = Length.SHORT;
 
-    Material altMaterial = Material.LEATHER;
-    Color altColor = Color.BLACK;
-    Length altLength = Length.LONG;
+    final Material altMaterial = Material.LEATHER;
+    final Color altColor = Color.BLACK;
+    final Length altLength = Length.LONG;
 
     @Test
     public void When_CreateNewRightSleeve_Expect_ReturnNotNull() {

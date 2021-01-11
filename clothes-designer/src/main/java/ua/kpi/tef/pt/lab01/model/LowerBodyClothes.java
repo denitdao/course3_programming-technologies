@@ -12,7 +12,7 @@ import java.util.List;
 public class LowerBodyClothes extends Clothes {
     /*private ClothingPart leftLeg, rightLeg - штанины
     private ClothingPart buttons, pockets, beltLoops, fly - пуговицы, карманы, петли для ремня, ширинка */
-    protected List<ClothingPart> clothingParts = new ArrayList<>();
+    protected final List<ClothingPart> clothingParts = new ArrayList<>();
 
     public LowerBodyClothes(String title, Type type, Name name, Size size, double price) {
         super(title, type, name, size, price);

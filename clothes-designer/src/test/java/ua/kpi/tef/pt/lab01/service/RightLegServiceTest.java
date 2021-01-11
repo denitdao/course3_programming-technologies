@@ -11,15 +11,15 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 
 class RightLegServiceTest {
 
-    RightLegService rightLegService = new RightLegService();
+    final RightLegService rightLegService = new RightLegService();
 
-    Material defMaterial = Material.COTTON;
-    Color defColor = Color.BLUE;
-    Fit defFit = Fit.CLASSIC;
+    final Material defMaterial = Material.COTTON;
+    final Color defColor = Color.BLUE;
+    final Fit defFit = Fit.CLASSIC;
 
-    Material altMaterial = Material.LEATHER;
-    Color altColor = Color.BLACK;
-    Fit altFit = Fit.REGULAR;
+    final Material altMaterial = Material.LEATHER;
+    final Color altColor = Color.BLACK;
+    final Fit altFit = Fit.REGULAR;
 
     @Test
     public void When_CreateNewRightLeg_Expect_ReturnNotNull() {

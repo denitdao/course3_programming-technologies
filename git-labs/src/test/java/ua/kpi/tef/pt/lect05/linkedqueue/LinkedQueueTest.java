@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 @RunWith(JUnit4.class)
 public class LinkedQueueTest {
 
-    private Queue<Integer> integerQueue = new LinkedQueue<>();
+    private final Queue<Integer> integerQueue = new LinkedQueue<>();
 
     @Test
     public void testAddElementIntoEmptyQueue() {

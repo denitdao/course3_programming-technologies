@@ -14,14 +14,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ExtendWith(MockitoExtension.class)
 class LowerBodyClothesServiceIT {
 
-    String defTitle = "Default Title";
-    Type defType = Type.CHILDREN;
-    Name defName = Name.JEANS;
-    Size defSize = Size.L;
-    Double defPrice = 80.;
-    LeftLeg defLeftLeg = new LeftLeg(Material.COTTON, Color.BLUE, Fit.CLASSIC);
-    RightLeg defRightLeg = new RightLeg(Material.COTTON, Color.BLUE, Fit.CLASSIC);
-    Button defButton = new Button(Material.COTTON, Color.BLUE, 10);
+    final String defTitle = "Default Title";
+    final Type defType = Type.CHILDREN;
+    final Name defName = Name.JEANS;
+    final Size defSize = Size.L;
+    final Double defPrice = 80.;
+    final LeftLeg defLeftLeg = new LeftLeg(Material.COTTON, Color.BLUE, Fit.CLASSIC);
+    final RightLeg defRightLeg = new RightLeg(Material.COTTON, Color.BLUE, Fit.CLASSIC);
+    final Button defButton = new Button(Material.COTTON, Color.BLUE, 10);
 
     @Mock
     LeftLegService leftLegService;

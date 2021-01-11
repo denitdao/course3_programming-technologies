@@ -3,7 +3,7 @@ package ua.kpi.tef.pt.lab01.model.parts;
 public enum Fit {
     SKINNY("Skinny"), SLIM("Slim"), REGULAR("Regular"), CLASSIC("Classic");
 
-    private String title;
+    private final String title;
 
     Fit(String title) {
         this.title = title;

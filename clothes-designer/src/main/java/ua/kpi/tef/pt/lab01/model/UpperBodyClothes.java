@@ -11,7 +11,7 @@ import java.util.List;
 public class UpperBodyClothes extends Clothes {
     /* body, leftSleeve, rightSleeve - тело и рукава
     collar, buttons, pockets - воротник, пуговицы, карманы*/
-    protected List<ClothingPart> clothingParts = new ArrayList<>();
+    protected final List<ClothingPart> clothingParts = new ArrayList<>();
 
     public UpperBodyClothes(String title, Type type, Name name, Size size, double price) {
         super(title, type, name, size, price);
