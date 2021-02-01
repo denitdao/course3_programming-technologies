@@ -1,5 +1,5 @@
 # Project exclude paths
 /out/
-clothes-designer/src/main/java/ua/kpi/tef/pt/practice/
+git-labs/src/main/java/ua/kpi/tef/pt/practice*
 clothes-designer/target/
 git-labs/target/

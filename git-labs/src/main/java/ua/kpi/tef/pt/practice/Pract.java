@@ -1,62 +1,26 @@
 package ua.kpi.tef.pt.practice;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.Queue;
 
 public class Pract {
 
-    static public class RPNParserException extends RuntimeException{
+    private int prv;
+    int def;
+    protected int prot;
+    public int pbl;
+
+    void smth() {
+        Pract pract = new Pract();
+        pract.prv = 3;
+        pract.prot = 3;
+        pract.def = 3;
+        pract.pbl = 3;
+        this.prv = 3;
+        this.prot = 3;
+        this.def = 3;
+        this.pbl = 3;
+    }
+
+    public static void main(String[] args) {
 
     }
 
-    static public class Application {
-
-        public static double parse(String rpnString) throws RPNParserException, ArithmeticException {
-            Deque<Double> deque = new LinkedList<>();
-            String[] elements = rpnString.split(" ");
-            double number1, number2;
-            for (String element: elements) {
-                switch (element) {
-                    case "+":
-                        number2 = deque.pop();
-                        number1 = deque.pop();
-                        deque.push(number1 + number2);
-                        break;
-                    case "-":
-                        number2 = deque.pop();
-                        number1 = deque.pop();
-                        deque.push(number1 - number2);
-                        break;
-                    case "/":
-                        number2 = deque.pop();
-                        number1 = deque.pop();
-                        if(number2 == 0)
-                            throw new ArithmeticException();
-                        deque.push(number1 / number2);
-                        break;
-                    case "*":
-                        number2 = deque.pop();
-                        number1 = deque.pop();
-                        deque.push(number1 * number2);
-                        break;
-                    default: {
-                        try {
-                            deque.push(Double.valueOf(element));
-                        } catch (NumberFormatException e) {
-                            throw new RPNParserException();
-                        }
-                    }
-                }
-            }
-            return deque.pop();
-        }
-
-        public static void main(String[] args) {
-            System.out.println(parse("10 20 + 30 40 + *"));
-            System.out.println(parse("10 20 30.0 * +"));
-            System.out.println(parse("10 20 30 () +"));
-            System.out.println(parse("10 20 Е * +"));
-            System.out.println(parse("0 0 /"));
-        }
-    }
 }
