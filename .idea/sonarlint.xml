@@ -4,6 +4,8 @@
     <option name="fileExclusions">
       <list>
         <option value="FILE:git-labs/src/main/java/ua/kpi/tef/pt/practice/Pract.java" />
+        <option value="DIRECTORY:git-labs/src/main/java/ua/kpi/tef/pt/practice" />
+        <option value="DIRECTORY:git-labs/src/main/java/ua/kpi/tef/pt/practice_companion" />
       </list>
     </option>
   </component>

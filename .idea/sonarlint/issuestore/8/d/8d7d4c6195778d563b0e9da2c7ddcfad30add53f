@@ -1,11 +1,19 @@
 
-U	java:S106!"9Replace this use of System.out or System.err by a logger.(Ò•š 8àò´­ï.
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(®ıáëûÿÿÿÿ8ÚõÓ–ï.
-]	java:S125""<This block of commented-out lines of code should be removed.(öùùâÿÿÿÿÿ8àò´­ï.
-T
-java:S1128"2Remove this unused import 'java.util.Collections'.(¢³ïÓşÿÿÿÿ8ñœ—–ï.
-Z	java:S106%"9Replace this use of System.out or System.err by a logger.(ØÅ£·ûÿÿÿÿ8õíØ­ï.
-X	java:S125"<This block of commented-out lines of code should be removed.(Œ¿¢ğ8’šõï.
-O
-java:S1128"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ8–ïñï.
-]	java:S125&"<This block of commented-out lines of code should be removed.(—Ûóäûÿÿÿÿ8õíØ­ï.
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚¥¬»şÿÿÿÿ8ÎŞ³äö.
+I
+java:S1068"'Remove this unused "prv" private field.( çÓßüÿÿÿÿ8º½‘óõ.
+l
+java:S1104"OMake pbl a static final constant or non-public and provide accessors if needed.(Ö¯ƒï8Ö¼Áòõ.
+F
+java:S1481")Remove this unused "var1" local variable.(ËÖ³“8ÎŞ³äö.
+Z	java:S106)"9Replace this use of System.out or System.err by a logger.(ç¦½Ïÿÿÿÿÿ8êÖ¹äö.
+X	java:S125"<This block of commented-out lines of code should be removed.(ŸãÿÕ8º½‘óõ.
+Z	java:S106'"9Replace this use of System.out or System.err by a logger.(Ã²Êûÿÿÿÿ8êÖ¹äö.
+F
+java:S1481")Remove this unused "_232" local variable.( ÷ì8ÎŞ³äö.
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( ÷ì8ÎŞ³äö.
+H
+java:S1481"&Remove this unused "$" local variable.(‚¥¬»şÿÿÿÿ8ÎŞ³äö.
+d
+java:S2094 "BRemove this empty class, write its code or make it an "interface".(´Ÿ¹•ıÿÿÿÿ8ã˜¶äö.
+Z	java:S106("9Replace this use of System.out or System.err by a logger.(¨ç°‡ÿÿÿÿÿ8êÖ¹äö.
