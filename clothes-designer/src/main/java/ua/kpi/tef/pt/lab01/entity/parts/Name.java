@@ -1,4 +1,4 @@
-package ua.kpi.tef.pt.lab01.model.parts;
+package ua.kpi.tef.pt.lab01.entity.parts;
 
 // divide into upper and lower names
 public enum Name {

@@ -1,16 +1,19 @@
-package ua.kpi.tef.pt.lab01.model;
+package ua.kpi.tef.pt.lab01.entity;
 
-import ua.kpi.tef.pt.lab01.model.parts.Color;
-import ua.kpi.tef.pt.lab01.model.parts.Material;
+import ua.kpi.tef.pt.lab01.entity.parts.Color;
+import ua.kpi.tef.pt.lab01.entity.parts.Fit;
+import ua.kpi.tef.pt.lab01.entity.parts.Material;
 
-public class Body implements ClothingPart {
-    private final String title = "Body";
+public class RightLeg implements ClothingPart {
+    private final String title = "Right Leg";
     private Material material;
     private Color color;
+    private Fit fit;
 
-    public Body(Material material, Color color) {
+    public RightLeg(Material material, Color color, Fit fit) {
         this.material = material;
         this.color = color;
+        this.fit = fit;
     }
 
     @Override
@@ -38,12 +41,21 @@ public class Body implements ClothingPart {
         this.color = color;
     }
 
+    public Fit getFit() {
+        return fit;
+    }
+
+    public void setFit(Fit fit) {
+        this.fit = fit;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(title)
                 .append("\n\tmaterial: ").append(material)
-                .append("\n\tcolor: ").append(color);
+                .append("\n\tcolor: ").append(color)
+                .append("\n\tfit: ").append(fit);
         return sb.toString();
     }
 }

@@ -1,4 +1,4 @@
-package ua.kpi.tef.pt.lab01.model.parts;
+package ua.kpi.tef.pt.lab01.entity.parts;
 
 public enum Fit {
     SKINNY("Skinny"), SLIM("Slim"), REGULAR("Regular"), CLASSIC("Classic");

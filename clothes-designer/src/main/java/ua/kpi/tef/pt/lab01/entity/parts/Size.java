@@ -1,4 +1,4 @@
-package ua.kpi.tef.pt.lab01.model.parts;
+package ua.kpi.tef.pt.lab01.entity.parts;
 
 public enum Size {
     XS("XS"), S("S"), M("M"), L("L"), XL("XL");

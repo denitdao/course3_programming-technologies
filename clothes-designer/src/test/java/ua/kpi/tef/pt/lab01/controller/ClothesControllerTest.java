@@ -4,11 +4,11 @@ import org.junit.jupiter.api.Test;
 import ua.kpi.tef.pt.lab01.exceptions.InvalidClothesIdException;
 import ua.kpi.tef.pt.lab01.exceptions.InvalidClothingSectionException;
 import ua.kpi.tef.pt.lab01.exceptions.NoClothesFoundException;
-import ua.kpi.tef.pt.lab01.model.Body;
-import ua.kpi.tef.pt.lab01.model.Button;
-import ua.kpi.tef.pt.lab01.model.LowerBodyClothes;
-import ua.kpi.tef.pt.lab01.model.UpperBodyClothes;
-import ua.kpi.tef.pt.lab01.model.parts.*;
+import ua.kpi.tef.pt.lab01.entity.Body;
+import ua.kpi.tef.pt.lab01.entity.Button;
+import ua.kpi.tef.pt.lab01.entity.LowerBodyClothes;
+import ua.kpi.tef.pt.lab01.entity.UpperBodyClothes;
+import ua.kpi.tef.pt.lab01.entity.parts.*;
 import ua.kpi.tef.pt.lab01.service.*;
 
 import java.util.*;

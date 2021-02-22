@@ -1,19 +1,18 @@
-package ua.kpi.tef.pt.lab01.model;
+package ua.kpi.tef.pt.lab01.entity;
 
-import ua.kpi.tef.pt.lab01.model.parts.Color;
-import ua.kpi.tef.pt.lab01.model.parts.Length;
-import ua.kpi.tef.pt.lab01.model.parts.Material;
+import ua.kpi.tef.pt.lab01.entity.parts.Color;
+import ua.kpi.tef.pt.lab01.entity.parts.Material;
 
-public class LeftSleeve implements ClothingPart {
-    private final String title = "Left Sleeve";
+public class Button implements ClothingPart {
+    private final String title = "Button";
     private Material material;
     private Color color;
-    private Length length;
+    private int amount;
 
-    public LeftSleeve(Material material, Color color, Length length) {
+    public Button(Material material, Color color, int amount) {
         this.material = material;
         this.color = color;
-        this.length = length;
+        this.amount = amount;
     }
 
     @Override
@@ -41,12 +40,12 @@ public class LeftSleeve implements ClothingPart {
         this.color = color;
     }
 
-    public Length getLength() {
-        return length;
+    public int getAmount() {
+        return amount;
     }
 
-    public void setLength(Length length) {
-        this.length = length;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     @Override
@@ -55,7 +54,7 @@ public class LeftSleeve implements ClothingPart {
         sb.append(title)
                 .append("\n\tmaterial: ").append(material)
                 .append("\n\tcolor: ").append(color)
-                .append("\n\tlength: ").append(length);
+                .append("\n\tamount: ").append(amount);
         return sb.toString();
     }
 }

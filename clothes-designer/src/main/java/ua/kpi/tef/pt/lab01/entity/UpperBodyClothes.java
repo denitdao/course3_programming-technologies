@@ -1,25 +1,24 @@
-package ua.kpi.tef.pt.lab01.model;
+package ua.kpi.tef.pt.lab01.entity;
 
-import ua.kpi.tef.pt.lab01.model.parts.Name;
-import ua.kpi.tef.pt.lab01.model.parts.Size;
-import ua.kpi.tef.pt.lab01.model.parts.Type;
+import ua.kpi.tef.pt.lab01.entity.parts.Name;
+import ua.kpi.tef.pt.lab01.entity.parts.Size;
+import ua.kpi.tef.pt.lab01.entity.parts.Type;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-
-public class LowerBodyClothes extends Clothes {
-    /*private ClothingPart leftLeg, rightLeg - штанины
-    private ClothingPart buttons, pockets, beltLoops, fly - пуговицы, карманы, петли для ремня, ширинка */
+public class UpperBodyClothes extends Clothes {
+    /* body, leftSleeve, rightSleeve - тело и рукава
+    collar, buttons, pockets - воротник, пуговицы, карманы*/
     protected final List<ClothingPart> clothingParts = new ArrayList<>();
 
-    public LowerBodyClothes(String title, Type type, Name name, Size size, double price) {
+    public UpperBodyClothes(String title, Type type, Name name, Size size, double price) {
         super(title, type, name, size, price);
     }
 
     /**
-     * Used to add Part to Lower body clothes.
+     * Used to add Part to Upper body clothes.
      */
     public void add(ClothingPart part) {
         clothingParts.add(part);
@@ -30,19 +29,19 @@ public class LowerBodyClothes extends Clothes {
      */
     public ClothingPart getPart(int index) { return clothingParts.get(index); }
 
-    public List<ClothingPart> getClothingParts() { return clothingParts; }
-
     /**
-     * Used to get {@link Iterator<ClothingPart>} over the Lower body clothes Parts.
+     * Used to get {@link Iterator<ClothingPart>} over the Upper body clothes Parts.
      */
     public Iterator<ClothingPart> getIterator(){
         return clothingParts.iterator();
     }
 
+    public List<ClothingPart> getClothingParts() { return clothingParts; }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\nLower Body - ").append(super.toString()).append("\n");
+        sb.append("\nUpper Body - ").append(super.toString()).append("\n"); // general info
         for (ClothingPart clothingPart : clothingParts) {
             sb.append(clothingPart.toString()).append("\n");
         }

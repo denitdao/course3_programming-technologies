@@ -1,4 +1,4 @@
-package ua.kpi.tef.pt.lab01.model.parts;
+package ua.kpi.tef.pt.lab01.entity.parts;
 
 public enum Color {
     RED("Red"), GREEN("Green"), BLUE("Blue"), YELLOW("Yellow"), BLACK("Black");

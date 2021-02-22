@@ -1,7 +1,7 @@
-package ua.kpi.tef.pt.lab01.model;
+package ua.kpi.tef.pt.lab01.entity;
 
-import ua.kpi.tef.pt.lab01.model.parts.Color;
-import ua.kpi.tef.pt.lab01.model.parts.Material;
+import ua.kpi.tef.pt.lab01.entity.parts.Color;
+import ua.kpi.tef.pt.lab01.entity.parts.Material;
 
 public interface ClothingPart {
 

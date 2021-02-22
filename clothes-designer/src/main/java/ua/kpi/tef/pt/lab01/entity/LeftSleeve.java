@@ -1,16 +1,16 @@
-package ua.kpi.tef.pt.lab01.model;
+package ua.kpi.tef.pt.lab01.entity;
 
-import ua.kpi.tef.pt.lab01.model.parts.Color;
-import ua.kpi.tef.pt.lab01.model.parts.Length;
-import ua.kpi.tef.pt.lab01.model.parts.Material;
+import ua.kpi.tef.pt.lab01.entity.parts.Color;
+import ua.kpi.tef.pt.lab01.entity.parts.Length;
+import ua.kpi.tef.pt.lab01.entity.parts.Material;
 
-public class RightSleeve implements ClothingPart {
-    private final String title = "Right Sleeve";
+public class LeftSleeve implements ClothingPart {
+    private final String title = "Left Sleeve";
     private Material material;
     private Color color;
     private Length length;
 
-    public RightSleeve(Material material, Color color, Length length) {
+    public LeftSleeve(Material material, Color color, Length length) {
         this.material = material;
         this.color = color;
         this.length = length;

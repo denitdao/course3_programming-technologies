@@ -1,10 +1,10 @@
 package ua.kpi.tef.pt.lab01.service;
 
-import ua.kpi.tef.pt.lab01.model.ClothingPart;
-import ua.kpi.tef.pt.lab01.model.LeftLeg;
-import ua.kpi.tef.pt.lab01.model.parts.Color;
-import ua.kpi.tef.pt.lab01.model.parts.Fit;
-import ua.kpi.tef.pt.lab01.model.parts.Material;
+import ua.kpi.tef.pt.lab01.entity.ClothingPart;
+import ua.kpi.tef.pt.lab01.entity.LeftLeg;
+import ua.kpi.tef.pt.lab01.entity.parts.Color;
+import ua.kpi.tef.pt.lab01.entity.parts.Fit;
+import ua.kpi.tef.pt.lab01.entity.parts.Material;
 
 public class LeftLegService {
 

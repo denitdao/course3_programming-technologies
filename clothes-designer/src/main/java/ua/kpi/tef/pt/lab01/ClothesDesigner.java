@@ -1,9 +1,9 @@
 package ua.kpi.tef.pt.lab01;
 
 import ua.kpi.tef.pt.lab01.controller.ClothesController;
-import ua.kpi.tef.pt.lab01.model.ClothingPart;
-import ua.kpi.tef.pt.lab01.model.UpperBodyClothes;
-import ua.kpi.tef.pt.lab01.model.parts.*;
+import ua.kpi.tef.pt.lab01.entity.ClothingPart;
+import ua.kpi.tef.pt.lab01.entity.UpperBodyClothes;
+import ua.kpi.tef.pt.lab01.entity.parts.*;
 import ua.kpi.tef.pt.lab01.service.*;
 
 public class ClothesDesigner {

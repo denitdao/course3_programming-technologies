@@ -1,4 +1,4 @@
-package ua.kpi.tef.pt.lab01.model.parts;
+package ua.kpi.tef.pt.lab01.entity.parts;
 
 public enum Type {
      MAN("Man"), WOMAN("Woman"), CHILDREN("Children");

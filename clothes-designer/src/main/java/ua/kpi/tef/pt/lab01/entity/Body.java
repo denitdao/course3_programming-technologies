@@ -1,18 +1,16 @@
-package ua.kpi.tef.pt.lab01.model;
+package ua.kpi.tef.pt.lab01.entity;
 
-import ua.kpi.tef.pt.lab01.model.parts.Color;
-import ua.kpi.tef.pt.lab01.model.parts.Material;
+import ua.kpi.tef.pt.lab01.entity.parts.Color;
+import ua.kpi.tef.pt.lab01.entity.parts.Material;
 
-public class Button implements ClothingPart {
-    private final String title = "Button";
+public class Body implements ClothingPart {
+    private final String title = "Body";
     private Material material;
     private Color color;
-    private int amount;
 
-    public Button(Material material, Color color, int amount) {
+    public Body(Material material, Color color) {
         this.material = material;
         this.color = color;
-        this.amount = amount;
     }
 
     @Override
@@ -40,21 +38,12 @@ public class Button implements ClothingPart {
         this.color = color;
     }
 
-    public int getAmount() {
-        return amount;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(title)
                 .append("\n\tmaterial: ").append(material)
-                .append("\n\tcolor: ").append(color)
-                .append("\n\tamount: ").append(amount);
+                .append("\n\tcolor: ").append(color);
         return sb.toString();
     }
 }

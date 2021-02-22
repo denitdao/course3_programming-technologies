@@ -1,10 +1,10 @@
 package ua.kpi.tef.pt.lab01.service;
 
 import org.junit.jupiter.api.Test;
-import ua.kpi.tef.pt.lab01.model.RightSleeve;
-import ua.kpi.tef.pt.lab01.model.parts.Color;
-import ua.kpi.tef.pt.lab01.model.parts.Length;
-import ua.kpi.tef.pt.lab01.model.parts.Material;
+import ua.kpi.tef.pt.lab01.entity.RightSleeve;
+import ua.kpi.tef.pt.lab01.entity.parts.Color;
+import ua.kpi.tef.pt.lab01.entity.parts.Length;
+import ua.kpi.tef.pt.lab01.entity.parts.Material;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertSame;

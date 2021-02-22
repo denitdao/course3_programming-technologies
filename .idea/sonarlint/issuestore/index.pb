@@ -16,3 +16,5 @@ S
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
 q
 Agit-labs/src/main/java/ua/kpi/tef/pt/practice/LocalCompanion.java,3\a\3a3d8a52ebd8a4387848eea9bc5c99665621096e
+w
+Gclothes-designer/src/main/java/ua/kpi/tef/pt/lab01/ClothesDesigner.java,e\3\e330ff82218bfddde7d8b9df2815d76bbfa91cf8

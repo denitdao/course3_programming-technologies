@@ -1,9 +1,9 @@
 package ua.kpi.tef.pt.lab01.service;
 
 import org.junit.jupiter.api.Test;
-import ua.kpi.tef.pt.lab01.model.Body;
-import ua.kpi.tef.pt.lab01.model.parts.Material;
-import ua.kpi.tef.pt.lab01.model.parts.Color;
+import ua.kpi.tef.pt.lab01.entity.Body;
+import ua.kpi.tef.pt.lab01.entity.parts.Material;
+import ua.kpi.tef.pt.lab01.entity.parts.Color;
 
 import static org.junit.jupiter.api.Assertions.*;
 

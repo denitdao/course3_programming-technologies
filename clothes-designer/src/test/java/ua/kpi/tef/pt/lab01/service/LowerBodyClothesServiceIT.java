@@ -6,8 +6,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import ua.kpi.tef.pt.lab01.model.*;
-import ua.kpi.tef.pt.lab01.model.parts.*;
+import ua.kpi.tef.pt.lab01.entity.*;
+import ua.kpi.tef.pt.lab01.entity.parts.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

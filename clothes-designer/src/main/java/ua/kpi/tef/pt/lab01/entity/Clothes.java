@@ -1,8 +1,8 @@
-package ua.kpi.tef.pt.lab01.model;
+package ua.kpi.tef.pt.lab01.entity;
 
-import ua.kpi.tef.pt.lab01.model.parts.Name;
-import ua.kpi.tef.pt.lab01.model.parts.Size;
-import ua.kpi.tef.pt.lab01.model.parts.Type;
+import ua.kpi.tef.pt.lab01.entity.parts.Name;
+import ua.kpi.tef.pt.lab01.entity.parts.Size;
+import ua.kpi.tef.pt.lab01.entity.parts.Type;
 
 /**
  * Defines the general information for the clothes.

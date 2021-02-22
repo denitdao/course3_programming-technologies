@@ -1,19 +1,19 @@
-package ua.kpi.tef.pt.lab01.model;
+package ua.kpi.tef.pt.lab01.entity;
 
-import ua.kpi.tef.pt.lab01.model.parts.Color;
-import ua.kpi.tef.pt.lab01.model.parts.Fit;
-import ua.kpi.tef.pt.lab01.model.parts.Material;
+import ua.kpi.tef.pt.lab01.entity.parts.Color;
+import ua.kpi.tef.pt.lab01.entity.parts.Length;
+import ua.kpi.tef.pt.lab01.entity.parts.Material;
 
-public class RightLeg implements ClothingPart {
-    private final String title = "Right Leg";
+public class RightSleeve implements ClothingPart {
+    private final String title = "Right Sleeve";
     private Material material;
     private Color color;
-    private Fit fit;
+    private Length length;
 
-    public RightLeg(Material material, Color color, Fit fit) {
+    public RightSleeve(Material material, Color color, Length length) {
         this.material = material;
         this.color = color;
-        this.fit = fit;
+        this.length = length;
     }
 
     @Override
@@ -41,12 +41,12 @@ public class RightLeg implements ClothingPart {
         this.color = color;
     }
 
-    public Fit getFit() {
-        return fit;
+    public Length getLength() {
+        return length;
     }
 
-    public void setFit(Fit fit) {
-        this.fit = fit;
+    public void setLength(Length length) {
+        this.length = length;
     }
 
     @Override
@@ -55,7 +55,7 @@ public class RightLeg implements ClothingPart {
         sb.append(title)
                 .append("\n\tmaterial: ").append(material)
                 .append("\n\tcolor: ").append(color)
-                .append("\n\tfit: ").append(fit);
+                .append("\n\tlength: ").append(length);
         return sb.toString();
     }
 }

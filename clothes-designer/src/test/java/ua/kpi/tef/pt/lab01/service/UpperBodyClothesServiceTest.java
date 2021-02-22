@@ -1,8 +1,8 @@
 package ua.kpi.tef.pt.lab01.service;
 
 import org.junit.jupiter.api.Test;
-import ua.kpi.tef.pt.lab01.model.*;
-import ua.kpi.tef.pt.lab01.model.parts.*;
+import ua.kpi.tef.pt.lab01.entity.*;
+import ua.kpi.tef.pt.lab01.entity.parts.*;
 
 import java.util.Iterator;
 
